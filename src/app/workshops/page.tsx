@@ -14,14 +14,14 @@ export default function WorkshopsPage() {
   const upcomingWorkshops = [
     {
       id: 1,
-      title: "Snatch Technique Masterclass",
+      title: "Introduction to Snatch",
       date: "March 15, 2024",
       time: "10:00 AM - 2:00 PM",
       location: "Grassroots Lifting Center",
       instructor: "Grandpa Trevor",
       price: "$150",
       spots: "8/12 spots filled",
-      level: "Intermediate",
+      level: "Beginner",
       description: "Deep dive into snatch technique with video analysis, drills, and personalized feedback.",
       topics: [
         "Proper starting position",
@@ -33,7 +33,7 @@ export default function WorkshopsPage() {
     },
     {
       id: 2,
-      title: "Clean & Jerk Fundamentals",
+      title: "Introduction to Clean & Jerk",
       date: "March 22, 2024",
       time: "9:00 AM - 1:00 PM",
       location: "Grassroots Lifting Center",
@@ -48,44 +48,6 @@ export default function WorkshopsPage() {
         "Footwork and balance",
         "Breathing and bracing",
         "Practice with light weights"
-      ]
-    },
-    {
-      id: 3,
-      title: "Competition Preparation",
-      date: "April 5, 2024",
-      time: "8:00 AM - 4:00 PM",
-      location: "Grassroots Lifting Center",
-      instructor: "Grandpa Trevor",
-      price: "$200",
-      spots: "4/8 spots filled",
-      level: "Advanced",
-      description: "Comprehensive competition prep including strategy, mental preparation, and peak performance.",
-      topics: [
-        "Competition rules and regulations",
-        "Warm-up strategies",
-        "Mental preparation techniques",
-        "Attempt selection strategy",
-        "Mock competition"
-      ]
-    },
-    {
-      id: 4,
-      title: "Youth Weightlifting (Ages 12-17)",
-      date: "April 12, 2024",
-      time: "2:00 PM - 5:00 PM",
-      location: "Grassroots Lifting Center",
-      instructor: "Grandpa Trevor",
-      price: "$100",
-      spots: "10/15 spots filled",
-      level: "All Levels",
-      description: "Specialized workshop for young athletes focusing on safe technique and fun learning.",
-      topics: [
-        "Age-appropriate training",
-        "Basic movement patterns",
-        "Safety and injury prevention",
-        "Goal setting for young athletes",
-        "Fun games and challenges"
       ]
     }
   ];
@@ -123,7 +85,7 @@ export default function WorkshopsPage() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: "url('/images/facility/fa1-main.jpeg')"
+          backgroundImage: "url('https://images.pexels.com/photos/416717/pexels-photo-416717.jpeg')"
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40"></div>
@@ -132,7 +94,7 @@ export default function WorkshopsPage() {
       {/* Content */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center">
+        {/* <section className="min-h-screen flex items-center">
           <div className="container-max px-4 w-full">
             <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="flex items-center justify-center mb-8">
@@ -156,10 +118,10 @@ export default function WorkshopsPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Workshop Types */}
-        <section className="py-20">
+        {/* <section className="py-20">
           <div className="container-max px-4">
             <div className={`text-center mb-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Workshop Categories</h2>
@@ -184,7 +146,7 @@ export default function WorkshopsPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Upcoming Workshops */}
         <section id="upcoming" className="py-20">
@@ -256,7 +218,7 @@ export default function WorkshopsPage() {
         </section>
 
         {/* Workshop Benefits */}
-        <section className="py-20">
+        {/* <section className="py-20">
           <div className="container-max px-4">
             <div className={`text-center mb-16 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Why Attend Our Workshops?</h2>
@@ -279,10 +241,10 @@ export default function WorkshopsPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
-        <section className="py-20">
+        {/* <section className="py-20">
           <div className="container-max px-4 text-center">
             <div className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-12 transition-all duration-1000 delay-900 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-4xl font-bold text-white mb-6">Ready to Improve Your Technique?</h2>
@@ -299,7 +261,7 @@ export default function WorkshopsPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   );

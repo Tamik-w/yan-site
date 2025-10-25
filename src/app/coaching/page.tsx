@@ -13,29 +13,14 @@ export default function CoachingPage() {
 
   const coachingOptions = [
     {
-      title: "1-on-1 Personal Coaching",
-      price: "$120/session",
+      title: "Consultation",
+      price: "$200/session",
       duration: "60 minutes",
       description: "Individualized attention with personalized programming and technique analysis",
       features: [
         "Personalized training program",
         "Video analysis and feedback",
-        "Nutrition guidance",
-        "Competition preparation",
-        "Unlimited email support"
-      ]
-    },
-    {
-      title: "Small Group Coaching",
-      price: "$60/session",
-      duration: "90 minutes",
-      description: "Train with 2-4 other athletes for motivation and shared learning",
-      features: [
-        "Group programming",
-        "Peer learning environment",
-        "Technique workshops",
-        "Progress tracking",
-        "Monthly group challenges"
+        "Nutrition guidance"
       ]
     },
     {
@@ -44,10 +29,8 @@ export default function CoachingPage() {
       duration: "Ongoing",
       description: "Remote coaching with video analysis and programming",
       features: [
-        "Custom programming",
-        "Weekly video analysis",
-        "Form check videos",
-        "Nutrition consultation",
+        "Custom weekly programming",
+        "Regular video and form check analysis",
         "24/7 chat support"
       ]
     }
@@ -55,29 +38,21 @@ export default function CoachingPage() {
 
   const coaches = [
     {
-      name: "Coach Name 1",
-      title: "Head Coach",
-      experience: "150+ years",
-      credentials: "USAW Level 3, CSCS",
+      name: "Katerina",
+      title: "Coach",
+      experience: "10+ years",
+      credentials: "BSc Psychology,  BSc Biology, NSCA Women's Fitness Specialist",
       image: "",
-      specialties: ["Snatch Technique", "Competition Prep", "Youth Development"]
+      specialties: ["Women's Fitness", "Pre & Post Natal Training", "Resistance Training"]
     },
     {
-      name: "Grandpa Trevor",
-      title: "Senior Coach",
-      experience: "120+ years",
-      credentials: "USAW Level 2, MS Exercise Science",
-      image: "",
-      specialties: ["Clean & Jerk", "Injury Prevention", "Masters Athletes"]
+      name: "Adrian",
+      title: "Coach",
+      experience: "5+ years",
+      credentials: "Fitness and Health Promotion, NCCP Competition Introduction",
+      image: "https://i.pinimg.com/1200x/32/bd/fe/32bdfe5a5e062cb5171d24112398d68a.jpg",
+      specialties: ["Weightlifting", "Powerlifting", "Strongman", "Youth Resistance Training,"]
     },
-    {
-      name: "Yan",
-      title: "Technique non-Specialist",
-      experience: "1 year",
-      credentials: "USAW Level 2, Physical Therapist",
-      image: "",
-      specialties: ["Movement Analysis", "And just a good guy"]
-    }
   ];
 
   return (
@@ -86,7 +61,7 @@ export default function CoachingPage() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: "url('/images/facility/fa1-main.jpeg')"
+          backgroundImage: "url('https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg')"
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40"></div>
@@ -95,7 +70,7 @@ export default function CoachingPage() {
       {/* Content */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center">
+        {/* <section className="min-h-screen flex items-center">
           <div className="container-max px-4 w-full">
             <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="flex items-center justify-center mb-8">
@@ -120,7 +95,7 @@ export default function CoachingPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Coaching Options */}
         <section className="py-20">
@@ -208,7 +183,7 @@ export default function CoachingPage() {
         </section>
 
         {/* Process Section */}
-        <section className="py-20">
+        {/* <section className="py-20">
           <div className="container-max px-4">
             <div className={`text-center mb-16 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">How It Works</h2>
@@ -232,10 +207,10 @@ export default function CoachingPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
-        <section className="py-20">
+        {/* <section className="py-20">
           <div className="container-max px-4 text-center">
             <div className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-12 transition-all duration-1000 delay-900 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-4xl font-bold text-white mb-6">Ready to Start Your Coaching Journey?</h2>
@@ -247,7 +222,7 @@ export default function CoachingPage() {
               </Link>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   );
