@@ -54,7 +54,7 @@ export default function HomePage() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: "url(/images/facility/fa1-main.jpeg)"
+          backgroundImage: "url(/../../public/images/facility/fa1-main.jpeg)"
         }}
       >
         {/* Gradient Overlay */}
