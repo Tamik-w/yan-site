@@ -11,9 +11,9 @@ export default function Navigation() {
     { name: 'Home', href: '/' },
     { name: 'Coaching', href: '/coaching' },
     { name: 'Workshops', href: '/workshops' },
-    { name: 'Programs', href: '/programs' },
+    // { name: 'Programs', href: '/programs' },
     { name: 'Contact', href: '/contact' },
-    { name: 'About', href: '/about' },
+    // { name: 'About', href: '/about' },
   ];
 
   return (

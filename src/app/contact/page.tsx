@@ -94,7 +94,7 @@ export default function ContactPage() {
       {/* Content */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center">
+        {/* <section className="min-h-screen flex items-center">
           <div className="container-max px-4 w-full">
             <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="flex items-center justify-center mb-8">
@@ -109,10 +109,10 @@ export default function ContactPage() {
               </p>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Contact Information */}
-        <section className="py-20">
+        {/* <section className="py-20">
           <div className="container-max px-4">
             <div className={`text-center mb-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Contact Information</h2>
@@ -132,7 +132,7 @@ export default function ContactPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Contact Form and Map */}
         <section className="py-20">
@@ -316,7 +316,7 @@ export default function ContactPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20">
+        {/* <section className="py-20">
           <div className="container-max px-4 text-center">
             <div className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-12 transition-all duration-1000 delay-900 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
@@ -341,7 +341,7 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   );
