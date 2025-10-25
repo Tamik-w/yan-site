@@ -1,0 +1,16 @@
+# Ignore large image files but keep directory structure
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.svg
+
+# Keep these files
+!.gitkeep
+!README.md
+!image-config.json
+
+# Example of how to add specific images if needed
+# !logo-main.svg
+# !hero-homepage.jpg

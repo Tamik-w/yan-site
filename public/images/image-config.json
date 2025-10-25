@@ -1,0 +1,158 @@
+{
+  "hero": {
+    "homepage": {
+      "filename": "hero-homepage.jpg",
+      "alt": "Olympic weightlifting training session",
+      "description": "Main hero image for homepage background"
+    },
+    "coaching": {
+      "filename": "hero-coaching.jpg",
+      "alt": "Personal coaching session",
+      "description": "Hero image for coaching page"
+    },
+    "workshops": {
+      "filename": "hero-workshops.jpg",
+      "alt": "Group workshop training",
+      "description": "Hero image for workshops page"
+    },
+    "programs": {
+      "filename": "hero-programs.jpg",
+      "alt": "Structured training program",
+      "description": "Hero image for programs page"
+    },
+    "contact": {
+      "filename": "hero-contact.jpg",
+      "alt": "Contact and communication",
+      "description": "Hero image for contact page"
+    },
+    "about": {
+      "filename": "hero-about.jpg",
+      "alt": "About our facility and team",
+      "description": "Hero image for about page"
+    }
+  },
+  "team": {
+    "alex-thompson": {
+      "filename": "alex-thompson.jpg",
+      "alt": "Alex Thompson - Head Coach",
+      "description": "Head Coach and Founder"
+    },
+    "maria-rodriguez": {
+      "filename": "maria-rodriguez.jpg",
+      "alt": "Maria Rodriguez - Senior Coach",
+      "description": "Senior Coach specializing in youth development"
+    },
+    "james-chen": {
+      "filename": "james-chen.jpg",
+      "alt": "James Chen - Technique Specialist",
+      "description": "Technique Specialist and Physical Therapist"
+    }
+  },
+  "facility": {
+    "main-gym": {
+      "filename": "facility-main-gym.jpg",
+      "alt": "Main training area",
+      "description": "Primary training facility"
+    },
+    "platforms": {
+      "filename": "facility-platforms.jpg",
+      "alt": "Competition platforms",
+      "description": "Competition-grade platforms"
+    },
+    "recovery-area": {
+      "filename": "facility-recovery.jpg",
+      "alt": "Recovery and mobility area",
+      "description": "Recovery and mobility section"
+    }
+  },
+  "workshops": {
+    "snatch-technique": {
+      "filename": "workshop-snatch.jpg",
+      "alt": "Snatch technique workshop",
+      "description": "Snatch technique masterclass"
+    },
+    "clean-jerk": {
+      "filename": "workshop-clean-jerk.jpg",
+      "alt": "Clean and jerk workshop",
+      "description": "Clean and jerk fundamentals"
+    },
+    "youth-training": {
+      "filename": "workshop-youth.jpg",
+      "alt": "Youth training session",
+      "description": "Youth development program"
+    }
+  },
+  "programs": {
+    "beginners": {
+      "filename": "program-beginners.jpg",
+      "alt": "Beginner's foundation program",
+      "description": "Beginner's Foundation program"
+    },
+    "intermediate": {
+      "filename": "program-intermediate.jpg",
+      "alt": "Intermediate development program",
+      "description": "Intermediate Development program"
+    },
+    "elite": {
+      "filename": "program-elite.jpg",
+      "alt": "Elite performance program",
+      "description": "Elite Performance program"
+    }
+  },
+  "testimonials": {
+    "sarah-johnson": {
+      "filename": "testimonial-sarah-johnson.jpg",
+      "alt": "Sarah Johnson testimonial",
+      "description": "Competitive Lifter testimonial"
+    },
+    "mike-chen": {
+      "filename": "testimonial-mike-chen.jpg",
+      "alt": "Mike Chen testimonial",
+      "description": "CrossFit Athlete testimonial"
+    },
+    "emma-rodriguez": {
+      "filename": "testimonial-emma-rodriguez.jpg",
+      "alt": "Emma Rodriguez testimonial",
+      "description": "Powerlifter testimonial"
+    },
+    "david-kim": {
+      "filename": "testimonial-david-kim.jpg",
+      "alt": "David Kim testimonial",
+      "description": "Fitness Enthusiast testimonial"
+    }
+  },
+  "logos": {
+    "main": {
+      "filename": "logo-main.svg",
+      "alt": "Grassroots Lifting Logo",
+      "description": "Main logo in SVG format"
+    },
+    "white": {
+      "filename": "logo-white.png",
+      "alt": "Grassroots Lifting Logo White",
+      "description": "White version of logo for dark backgrounds"
+    },
+    "icon": {
+      "filename": "logo-icon.svg",
+      "alt": "Grassroots Lifting Icon",
+      "description": "Icon version of logo"
+    }
+  },
+  "icons": {
+    "dumbbell": {
+      "filename": "icon-dumbbell.svg",
+      "alt": "Dumbbell icon",
+      "description": "Dumbbell icon for navigation"
+    },
+    "trophy": {
+      "filename": "icon-trophy.svg",
+      "alt": "Trophy icon",
+      "description": "Trophy icon for achievements"
+    },
+    "users": {
+      "filename": "icon-users.svg",
+      "alt": "Users icon",
+      "description": "Users icon for team/community"
+    }
+  }
+}
