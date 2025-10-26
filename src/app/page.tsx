@@ -67,7 +67,7 @@ export default function HomePage() {
       {/* Content Container */}
       <div className="relative z-10 min-h-screen flex items-center">
         <div className="container-max mobile-safe-area w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen corner-spacing">
             
             {/* Left Section - Main Content */}
             <div className="text-white space-y-8">

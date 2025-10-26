@@ -139,7 +139,7 @@ export default function AboutPage() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-20">
+        <section className="section-spacing">
           <div className="container-max px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 corner-spacing">
               {stats.map((stat, index) => (
@@ -153,7 +153,7 @@ export default function AboutPage() {
         </section>
 
         {/* Our Story */}
-        <section className="py-20">
+        <section className="section-spacing">
           <div className="container-max px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center corner-spacing">
               <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>

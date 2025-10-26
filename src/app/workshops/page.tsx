@@ -152,7 +152,7 @@ export default function WorkshopsPage() {
         </section> */}
 
         {/* Upcoming Workshops */}
-        <section id="upcoming" className="py-20">
+        <section id="upcoming" className="section-spacing">
           <div className="container-max px-4">
             <div className={`text-center mb-16 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Upcoming Workshops</h2>

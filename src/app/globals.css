@@ -48,9 +48,14 @@
     @apply pt-4 pb-4 px-4 sm:pt-6 sm:pb-6 sm:px-6 lg:pt-8 lg:pb-8 lg:px-8;
   }
 
-  /* Corner spacing for full-screen layouts */
+  /* Corner spacing for full-screen layouts - increased for header and smaller screens */
   .corner-spacing {
-    @apply p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 2xl:p-20;
+    @apply p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 2xl:p-24;
+  }
+
+  /* Additional spacing for content sections */
+  .section-spacing {
+    @apply py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24;
   }
 
   /* Custom animations */

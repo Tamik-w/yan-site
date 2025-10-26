@@ -195,7 +195,7 @@ export default function ProgramsPage() {
         </section>
 
         {/* Program Types */}
-        <section className="py-20">
+        <section className="section-spacing">
           <div className="container-max px-4">
             <div className={`text-center mb-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Training Options</h2>
