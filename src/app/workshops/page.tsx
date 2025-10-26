@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Calendar, Clock, Users, MapPin, CheckCircle, Star, Award, Zap } from 'lucide-react';
 
 export default function WorkshopsPage() {
@@ -82,12 +83,14 @@ export default function WorkshopsPage() {
   return (
     <div className="relative min-h-screen md:h-screen overflow-hidden md:overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{
-          backgroundImage: "url('https://images.pexels.com/photos/416717/pexels-photo-416717.jpeg')"
-        }}
-      >
+      <div className="absolute inset-0">
+        <Image
+          src="/images/facility/fa1-main.jpeg"
+          alt="Olympic weightlifting facility"
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40"></div>
       </div>
 

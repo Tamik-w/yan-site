@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
@@ -51,12 +52,14 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen overflow-hidden md:h-screen md:overflow-hidden">
       {/* Background Image with Parallax Effect */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{
-          backgroundImage: "url('images/facility/fa1-main.jpeg')"
-        }}
-      >
+      <div className="absolute inset-0">
+        <Image
+          src="/images/facility/fa1-main.jpeg"
+          alt="Olympic weightlifting facility"
+          fill
+          className="object-cover"
+          priority
+        />
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
       </div>

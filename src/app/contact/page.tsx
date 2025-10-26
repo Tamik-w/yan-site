@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, MessageCircle } from 'lucide-react';
 
 export default function ContactPage() {
@@ -113,12 +114,14 @@ export default function ContactPage() {
   return (
     <div className="relative min-h-screen md:h-screen overflow-hidden md:overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{
-          backgroundImage: "url('https://i.pinimg.com/1200x/74/5d/eb/745deb60c80da80d4393e03ae388243a.jpg')"
-        }}
-      >
+      <div className="absolute inset-0">
+        <Image
+          src="/images/facility/fa1-main.jpeg"
+          alt="Olympic weightlifting facility"
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40"></div>
       </div>
 

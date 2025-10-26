@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Trophy, Users, Target, Award, Star, Heart, Shield, Zap } from 'lucide-react';
 
 export default function AboutPage() {
@@ -106,12 +107,14 @@ export default function AboutPage() {
   return (
     <div className="relative min-h-screen md:h-screen overflow-hidden md:overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{
-          backgroundImage: "url('/images/facility/fa1-main.jpeg')"
-        }}
-      >
+      <div className="absolute inset-0">
+        <Image
+          src="/images/facility/fa1-main.jpeg"
+          alt="Olympic weightlifting facility"
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40"></div>
       </div>
 
