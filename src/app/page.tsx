@@ -98,7 +98,7 @@ export default function HomePage() {
               {/* CTA Buttons */}
               <div className={`flex flex-col sm:flex-row gap-6 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <Link 
-                  href="/programs" 
+                  href="/contact" 
                   className="group bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center"
                 >
                   Get Started Today
