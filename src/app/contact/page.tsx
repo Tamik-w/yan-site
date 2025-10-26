@@ -15,6 +15,7 @@ export default function ContactPage() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -55,6 +56,13 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsLoading(true);
+    setErrors({});
+    
     try {
       const response = await fetch('/api/send-email', {
         method: 'POST',
@@ -63,6 +71,8 @@ export default function ContactPage() {
         },
         body: JSON.stringify(formData),
       });
+  
+      const result = await response.json();
   
       if (response.ok) {
         setIsSubmitted(true);
@@ -77,12 +87,14 @@ export default function ContactPage() {
           });
         }, 3000);
       } else {
-        console.error('Failed to send email');
-        alert('Failed to send message. Please try again.');
+        console.error('Failed to send email:', result.error);
+        setErrors({ submit: result.error || 'Failed to send message. Please try again.' });
       }
     } catch (error) {
       console.error('Error sending email:', error);
-      alert('Failed to send message. Please try again.');
+      setErrors({ submit: 'Network error. Please check your connection and try again.' });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -269,12 +281,28 @@ export default function ContactPage() {
                       {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
                     </div>
 
+                    {errors.submit && (
+                      <div className="bg-red-500/20 border border-red-500/30 text-red-300 px-4 py-3 rounded-lg text-sm">
+                        {errors.submit}
+                      </div>
+                    )}
+                    
                     <button
                       type="submit"
-                      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center"
+                      disabled={isLoading}
+                      className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center"
                     >
-                      <Send className="mr-2 h-5 w-5" />
-                      Send Message
+                      {isLoading ? (
+                        <>
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-5 w-5" />
+                          Send Message
+                        </>
+                      )}
                     </button>
                   </form>
                 )}

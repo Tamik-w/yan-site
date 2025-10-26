@@ -12,6 +12,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check if environment variables are set
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error('Missing email environment variables');
+      return NextResponse.json(
+        { error: 'Email service not configured. Please contact support.' },
+        { status: 500 }
+      );
+    }
+
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -55,8 +64,21 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Error sending email:', error);
+    
+    // Provide more specific error messages
+    let errorMessage = 'Failed to send email';
+    if (error instanceof Error) {
+      if (error.message.includes('Invalid login')) {
+        errorMessage = 'Email authentication failed. Please check credentials.';
+      } else if (error.message.includes('ENOTFOUND')) {
+        errorMessage = 'Network error. Please check your internet connection.';
+      } else if (error.message.includes('timeout')) {
+        errorMessage = 'Request timeout. Please try again.';
+      }
+    }
+    
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { error: errorMessage },
       { status: 500 }
     );
   }
