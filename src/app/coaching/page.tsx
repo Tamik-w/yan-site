@@ -72,7 +72,7 @@ export default function CoachingPage() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="responsive-container w-full">
+        <div className="container-max mobile-safe-area w-full">
           {/* Hero Section */}
           {/* <div className={`text-center mb-12 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="flex items-center justify-center mb-8">
@@ -88,33 +88,33 @@ export default function CoachingPage() {
           </div> */}
 
           {/* Main Content - Side by Side */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 responsive-gap corner-spacing">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 corner-spacing">
             {/* Left Side - Coaching Options */}
             <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-              <h2 className="responsive-subtitle font-bold text-white mb-6 sm:mb-8 text-center lg:text-left">Choose Your Coaching Style</h2>
-              <div className="space-y-4 sm:space-y-6">
+              <h2 className="text-3xl font-bold text-white mb-8 text-center lg:text-left">Choose Your Coaching Style</h2>
+              <div className="space-y-6">
                 {coachingOptions.map((option, index) => (
-                  <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl responsive-padding hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
+                  <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
                     <div className="text-center mb-3">
-                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{option.title}</h3>
-                      <div className="text-xl sm:text-2xl font-bold text-green-400 mb-2">{option.price}</div>
-                      <div className="flex items-center justify-center text-gray-300 mb-3 text-sm sm:text-base">
-                        <Clock className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
+                      <h3 className="text-xl font-bold text-white mb-2">{option.title}</h3>
+                      <div className="text-2xl font-bold text-green-400 mb-2">{option.price}</div>
+                      <div className="flex items-center justify-center text-gray-300 mb-3">
+                        <Clock className="h-4 w-4 mr-2" />
                         {option.duration}
                       </div>
-                      <p className="text-gray-300 mb-3 text-xs sm:text-sm">{option.description}</p>
+                      <p className="text-gray-300 mb-3 text-sm">{option.description}</p>
                     </div>
 
-                    <ul className="space-y-1 sm:space-y-2 mb-4 sm:mb-6">
+                    <ul className="space-y-2 mb-6">
                       {option.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-gray-200 text-xs sm:text-sm">
-                          <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-2 sm:mr-3 flex-shrink-0" />
+                        <li key={featureIndex} className="flex items-center text-gray-200">
+                          <CheckCircle className="h-4 w-4 text-green-400 mr-3 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}
                     </ul>
 
-                    <Link href="/contact" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-center block text-sm sm:text-base">
+                    <Link href="/contact" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-center block">
                       Get Started
                     </Link>
                   </div>
@@ -124,36 +124,36 @@ export default function CoachingPage() {
 
             {/* Right Side - Coaches */}
             <div className={`transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-              <h2 className="responsive-subtitle font-bold text-white mb-6 sm:mb-8 text-center lg:text-left">Meet Our Expert Coaches</h2>
-              <div className="space-y-4 sm:space-y-6">
+              <h2 className="text-3xl font-bold text-white mb-8 text-center lg:text-left">Meet Our Expert Coaches</h2>
+              <div className="space-y-6">
                 {coaches.map((coach, index) => (
                   <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                    <div className="responsive-padding">
-                      <div className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="p-6">
+                      <div className="flex items-start space-x-4">
                         {coach.image && (
                           <img
                             src={coach.image}
                             alt={coach.name}
-                            className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover flex-shrink-0"
+                            className="w-20 h-20 rounded-full object-cover flex-shrink-0"
                           />
                         )}
                         <div className="flex-1">
-                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">{coach.name}</h3>
-                          <div className="text-green-400 font-semibold mb-2 text-sm sm:text-base">{coach.title}</div>
+                          <h3 className="text-2xl font-bold text-white mb-2">{coach.name}</h3>
+                          <div className="text-green-400 font-semibold mb-2">{coach.title}</div>
                           <div className="text-gray-300 mb-4">
-                            <div className="flex items-center mb-1 text-xs sm:text-sm">
-                              <Users className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
+                            <div className="flex items-center mb-1">
+                              <Users className="h-4 w-4 mr-2" />
                               {coach.experience} experience
                             </div>
-                            <div className="text-xs sm:text-sm">
+                            <div className="text-sm">
                               {coach.credentials}
                             </div>
                           </div>
                           <div>
-                            <h4 className="font-semibold text-white mb-2 text-sm sm:text-base">Specialties:</h4>
-                            <div className="flex flex-wrap gap-1 sm:gap-2">
+                            <h4 className="font-semibold text-white mb-2">Specialties:</h4>
+                            <div className="flex flex-wrap gap-2">
                               {coach.specialties.map((specialty, specialtyIndex) => (
-                                <span key={specialtyIndex} className="bg-green-400/20 text-green-300 px-2 py-1 sm:px-3 rounded-full text-xs sm:text-sm border border-green-400/30">
+                                <span key={specialtyIndex} className="bg-green-400/20 text-green-300 px-3 py-1 rounded-full text-sm border border-green-400/30">
                                   {specialty}
                                 </span>
                               ))}

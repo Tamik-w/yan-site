@@ -152,27 +152,27 @@ export default function ContactPage() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="responsive-container w-full">
+        <div className="container-max mobile-safe-area w-full">
           {/* Hero Section */}
-          <div className={`text-center mb-6 sm:mb-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex items-center justify-center mb-4 sm:mb-6">
-              <MessageCircle className="h-8 w-8 sm:h-12 sm:w-12 text-green-400 mr-3 sm:mr-4 animate-pulse" />
-              <h1 className="responsive-subtitle font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
+          <div className={`text-center mb-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className="flex items-center justify-center mb-6">
+              <MessageCircle className="h-12 w-12 text-green-400 mr-4 animate-pulse" />
+              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
                 Get In Touch
               </h1>
             </div>
-            <p className="responsive-body text-gray-200 mb-4 sm:mb-6 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-200 mb-6 leading-relaxed">
               Ready to start your Olympic weightlifting journey? Contact us today!
             </p>
           </div>
 
           {/* Main Content - Side by Side */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 responsive-gap corner-spacing">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 corner-spacing">
             {/* Left Side - Contact Form */}
             <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl responsive-padding">
-                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">Send Us a Message</h2>
-                <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
+              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
+                <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
+                <p className="text-gray-300 mb-6">
                   Fill out the form below and we'll get back to you within 24 hours.
                 </p>
 

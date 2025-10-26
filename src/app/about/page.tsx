@@ -122,15 +122,15 @@ export default function AboutPage() {
       <div className="relative z-10">
         {/* Hero Section */}
         <section className="min-h-screen flex items-center">
-          <div className="responsive-container w-full">
+          <div className="container-max mobile-safe-area w-full">
             <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 corner-spacing ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="flex items-center justify-center mb-6 sm:mb-8">
-                <Trophy className="h-12 w-12 sm:h-16 sm:w-16 text-green-400 mr-3 sm:mr-4 animate-pulse" />
-                <h1 className="responsive-title font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
+              <div className="flex items-center justify-center mb-8">
+                <Trophy className="h-16 w-16 text-green-400 mr-4 animate-pulse" />
+                <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
                   About Grassroots Lifting
                 </h1>
               </div>
-              <p className="responsive-body text-gray-200 mb-6 sm:mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
                 We're passionate about Olympic weightlifting and dedicated to helping athletes of all levels 
                 achieve their goals through expert coaching, proven programs, and a supportive community.
               </p>
@@ -139,13 +139,13 @@ export default function AboutPage() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-12 sm:py-16 md:py-20">
-          <div className="responsive-container">
-            <div className="grid grid-cols-2 md:grid-cols-4 responsive-grid-gap">
+        <section className="py-20">
+          <div className="container-max px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 corner-spacing">
               {stats.map((stat, index) => (
                 <div key={index} className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-400 mb-1 sm:mb-2">{stat.number}</div>
-                  <div className="text-gray-300 font-semibold text-xs sm:text-sm md:text-base">{stat.label}</div>
+                  <div className="text-4xl md:text-5xl font-bold text-green-400 mb-2">{stat.number}</div>
+                  <div className="text-gray-300 font-semibold">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -153,23 +153,23 @@ export default function AboutPage() {
         </section>
 
         {/* Our Story */}
-        <section className="py-12 sm:py-16 md:py-20">
-          <div className="responsive-container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 responsive-gap items-center">
+        <section className="py-20">
+          <div className="container-max px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center corner-spacing">
               <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-                <h2 className="responsive-subtitle font-bold text-white mb-4 sm:mb-6">Our Story</h2>
-                <p className="responsive-body text-gray-300 mb-4 sm:mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Story</h2>
+                <p className="text-lg text-gray-300 mb-6">
                   Grassroots Lifting was founded in 2008 by Alex Thompson, a former national team member who 
                   wanted to share his passion for Olympic weightlifting with others. What started as a 
                   small training group has grown into a comprehensive training facility serving athletes 
                   from beginners to elite competitors.
                 </p>
-                <p className="responsive-body text-gray-300 mb-4 sm:mb-6">
+                <p className="text-lg text-gray-300 mb-6">
                   Our mission is simple: to provide world-class coaching, proven training methods, and 
                   a supportive community that helps athletes achieve their goals, whether that's learning 
                   proper technique, competing at the national level, or simply getting stronger and more confident.
                 </p>
-                <p className="responsive-body text-gray-300">
+                <p className="text-lg text-gray-300">
                   Today, we're proud to serve over 500 athletes with programs ranging from youth development 
                   to elite competition preparation, all delivered with the same passion and dedication that 
                   started our journey.
