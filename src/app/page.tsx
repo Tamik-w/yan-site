@@ -49,12 +49,12 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden md:h-screen md:overflow-hidden">
       {/* Background Image with Parallax Effect */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: "url(/images/facility/fa1-main.jpeg)"
+          backgroundImage: "url('images/facility/fa1-main.jpeg')"
         }}
       >
         {/* Gradient Overlay */}
@@ -63,7 +63,7 @@ export default function HomePage() {
 
       {/* Content Container */}
       <div className="relative z-10 min-h-screen flex items-center">
-        <div className="container-max px-4 w-full">
+        <div className="container-max mobile-safe-area w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
             
             {/* Left Section - Main Content */}
@@ -72,7 +72,7 @@ export default function HomePage() {
               <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <div className="flex items-center mb-6">
                   <div>
-                    <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
                       Grassroots Lifting
                     </h1>
                     <div className="h-1 w-32 bg-gradient-to-r from-green-400 to-green-600 mt-2"></div>

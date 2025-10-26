@@ -56,12 +56,12 @@ export default function CoachingPage() {
   ];
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative min-h-screen md:h-screen overflow-hidden md:overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: "url('/images/facility/fa1-main.jpeg')"
+          backgroundImage: "url('https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg')"
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40"></div>
@@ -69,7 +69,7 @@ export default function CoachingPage() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container-max px-4 w-full">
+        <div className="container-max mobile-safe-area w-full">
           {/* Hero Section */}
           {/* <div className={`text-center mb-12 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="flex items-center justify-center mb-8">
@@ -91,15 +91,15 @@ export default function CoachingPage() {
               <h2 className="text-3xl font-bold text-white mb-8 text-center lg:text-left">Choose Your Coaching Style</h2>
               <div className="space-y-6">
                 {coachingOptions.map((option, index) => (
-                  <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                    <div className="text-center mb-4">
-                      <h3 className="text-2xl font-bold text-white mb-2">{option.title}</h3>
-                      <div className="text-3xl font-bold text-green-400 mb-2">{option.price}</div>
-                      <div className="flex items-center justify-center text-gray-300 mb-4">
-                        <Clock className="h-5 w-5 mr-2" />
+                  <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
+                    <div className="text-center mb-3">
+                      <h3 className="text-xl font-bold text-white mb-2">{option.title}</h3>
+                      <div className="text-2xl font-bold text-green-400 mb-2">{option.price}</div>
+                      <div className="flex items-center justify-center text-gray-300 mb-3">
+                        <Clock className="h-4 w-4 mr-2" />
                         {option.duration}
                       </div>
-                      <p className="text-gray-300 mb-4">{option.description}</p>
+                      <p className="text-gray-300 mb-3 text-sm">{option.description}</p>
                     </div>
 
                     <ul className="space-y-2 mb-6">

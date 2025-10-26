@@ -12,6 +12,14 @@
     height: 100%;
     overflow: hidden;
   }
+
+  /* Allow scrolling on mobile devices */
+  @media (max-width: 768px) {
+    html, body {
+      height: auto;
+      overflow: auto;
+    }
+  }
 }
 
 @layer components {
@@ -29,6 +37,15 @@
   
   .container-max {
     @apply max-w-7xl mx-auto;
+  }
+
+  /* Mobile padding utilities */
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .mobile-safe-area {
+    @apply pt-4 pb-4 px-4 sm:pt-6 sm:pb-6 sm:px-6 lg:pt-8 lg:pb-8 lg:px-8;
   }
 
   /* Custom animations */

@@ -13,6 +13,7 @@ export default function ContactPage() {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
 
   useEffect(() => {
     setIsLoaded(true);
@@ -25,22 +26,50 @@ export default function ContactPage() {
     });
   };
 
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email is invalid';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+    
+    if (formData.phone && !/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/\s/g, ''))) {
+      newErrors.phone = 'Phone number is invalid';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // For now, just show success message without sending email
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: ''
-      });
-    }, 3000);
+    if (validateForm()) {
+      // For now, just show success message without sending email
+      console.log('Form submitted:', formData);
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+        setErrors({});
+      }, 3000);
+    }
   };
 
   const contactInfo = [
@@ -82,12 +111,12 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative min-h-screen md:h-screen overflow-hidden md:overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: "url('/images/facility/fa1-main.jpeg')"
+          backgroundImage: "url('https://i.pinimg.com/1200x/74/5d/eb/745deb60c80da80d4393e03ae388243a.jpg')"
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40"></div>
@@ -95,7 +124,7 @@ export default function ContactPage() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container-max px-4 w-full">
+        <div className="container-max mobile-safe-area w-full">
           {/* Hero Section */}
           <div className={`text-center mb-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="flex items-center justify-center mb-6">
@@ -141,9 +170,12 @@ export default function ContactPage() {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm"
+                          className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm ${
+                            errors.name ? 'border-red-400' : 'border-white/20'
+                          }`}
                           placeholder="Your full name"
                         />
+                        {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
                       </div>
                       <div>
                         <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
@@ -156,9 +188,12 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm"
+                          className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm ${
+                            errors.email ? 'border-red-400' : 'border-white/20'
+                          }`}
                           placeholder="your@email.com"
                         />
+                        {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
                       </div>
                     </div>
 
@@ -173,9 +208,12 @@ export default function ContactPage() {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm"
+                          className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm ${
+                            errors.phone ? 'border-red-400' : 'border-white/20'
+                          }`}
                           placeholder="(555) 123-4567"
                         />
+                        {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
                       </div>
                       <div>
                         <label htmlFor="service" className="block text-sm font-semibold text-white mb-2">
@@ -207,9 +245,12 @@ export default function ContactPage() {
                         onChange={handleChange}
                         required
                         rows={4}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm"
+                        className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm ${
+                          errors.message ? 'border-red-400' : 'border-white/20'
+                        }`}
                         placeholder="Tell us about your goals, experience level, or any questions you have..."
                       />
+                      {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
                     </div>
 
                     <button
@@ -225,18 +266,33 @@ export default function ContactPage() {
             </div>
 
             {/* Right Side - Contact Info */}
-            <div className={`space-y-6 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
-                <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
-                <div className="space-y-4">
+            <div className={`space-y-4 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+              {/* Interactive Map */}
+              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4">
+                <h3 className="text-lg font-bold text-white mb-4">Find Us</h3>
+                <div className="h-48 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg flex items-center justify-center border border-green-400/30">
+                  <div className="text-center">
+                    <MapPin className="h-8 w-8 text-green-400 mx-auto mb-2" />
+                    <p className="text-white font-semibold text-sm">Interactive Map</p>
+                    <p className="text-gray-300 text-xs">123 Gym Street, Fitness City</p>
+                    <button className="mt-2 bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-1 rounded transition-colors">
+                      View on Google Maps
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4">
+                <h3 className="text-lg font-bold text-white mb-4">Contact Information</h3>
+                <div className="space-y-3">
                   {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                      <div className="bg-green-400/20 w-12 h-12 rounded-full flex items-center justify-center mr-4 border border-green-400/30">
-                        <div className="text-green-400">{info.icon}</div>
+                    <div key={index} className="flex items-center p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                      <div className="bg-green-400/20 w-8 h-8 rounded-full flex items-center justify-center mr-3 border border-green-400/30">
+                        <div className="text-green-400 text-sm">{info.icon}</div>
                       </div>
                       <div>
-                        <div className="font-semibold text-white">{info.title}</div>
-                        <div className="text-sm text-gray-300">{info.details}</div>
+                        <div className="font-semibold text-white text-sm">{info.title}</div>
+                        <div className="text-xs text-gray-300">{info.details}</div>
                         <div className="text-xs text-gray-400">{info.description}</div>
                       </div>
                     </div>

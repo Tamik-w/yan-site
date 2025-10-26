@@ -80,7 +80,7 @@ export default function WorkshopsPage() {
   ];
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative min-h-screen md:h-screen overflow-hidden md:overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
@@ -95,7 +95,7 @@ export default function WorkshopsPage() {
       <div className="relative z-10">
         {/* Hero Section */}
         {/* <section className="min-h-screen flex items-center">
-          <div className="container-max px-4 w-full">
+          <div className="container-max mobile-safe-area w-full">
             <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="flex items-center justify-center mb-8">
                 <Award className="h-16 w-16 text-green-400 mr-4 animate-pulse" />
