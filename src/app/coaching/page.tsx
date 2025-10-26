@@ -61,7 +61,7 @@ export default function CoachingPage() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/facility/fa1-main.jpeg"
+          src="images/facility/fa1-main.jpeg"
           alt="Olympic weightlifting facility"
           fill
           className="object-cover"
