@@ -11,7 +11,7 @@ const testimonials = [
     role: "Elite Athlete",
     content: "Not bad.",
     rating: 5,
-    image: ""
+    image: "https://media.tenor.com/o68Fvi_vj8QAAAAi/betterttv-meme.gif"
   },
   {
     id: 2,
@@ -71,7 +71,6 @@ export default function HomePage() {
               {/* Logo and Title */}
               <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <div className="flex items-center mb-6">
-                  <img src="/images/logos/logo.jpeg" alt="Grassroots Lifting Logo" className="h-12 w-12 mr-4 animate-pulse" />
                   <div>
                     <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
                       Grassroots Lifting

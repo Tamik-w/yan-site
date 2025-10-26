@@ -104,7 +104,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative h-screen overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"

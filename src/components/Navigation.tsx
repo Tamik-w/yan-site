@@ -22,7 +22,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <img src="../../public/logo.jpeg" alt="Grassroots Lifting Logo" className="h-8 w-8" />
+            <img src="/images/logos/bamboo-logo.png" alt="Grassroots Lifting Logo" className="h-8 w-8" />
             <span className="text-2xl font-bold text-gray-900">Grassroots Lifting</span>
           </Link>
 

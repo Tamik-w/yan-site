@@ -3,10 +3,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    height: 100%;
+    overflow: hidden;
   }
   
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    height: 100%;
+    overflow: hidden;
   }
 }
 
