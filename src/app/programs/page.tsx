@@ -168,25 +168,25 @@ export default function ProgramsPage() {
       <div className="relative z-10">
         {/* Hero Section */}
         <section className="min-h-screen flex items-center">
-          <div className="container-max mobile-safe-area w-full">
-            <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="flex items-center justify-center mb-8">
-                <Target className="h-16 w-16 text-green-400 mr-4 animate-pulse" />
-                <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
+          <div className="responsive-container w-full">
+            <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 corner-spacing ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <div className="flex items-center justify-center mb-6 sm:mb-8">
+                <Target className="h-12 w-12 sm:h-16 sm:w-16 text-green-400 mr-3 sm:mr-4 animate-pulse" />
+                <h1 className="responsive-title font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
                   Training Programs
                 </h1>
               </div>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
+              <p className="responsive-body text-gray-200 mb-6 sm:mb-8 leading-relaxed">
                 Structured programs designed for every level, from complete beginners to elite competitors. 
                 Choose the program that fits your goals, schedule, and experience level.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link href="#programs" className="group bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center">
-                  <Target className="mr-2 h-5 w-5" />
+              <div className="flex flex-col sm:flex-row responsive-gap justify-center">
+                <Link href="#programs" className="group bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 sm:py-4 sm:px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center text-sm sm:text-base">
+                  <Target className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                   View All Programs
                 </Link>
-                <Link href="/contact" className="group bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center">
-                  <Calendar className="mr-2 h-5 w-5" />
+                <Link href="/contact" className="group bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold py-3 px-6 sm:py-4 sm:px-8 rounded-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center text-sm sm:text-base">
+                  <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                   Schedule Consultation
                 </Link>
               </div>
@@ -195,23 +195,23 @@ export default function ProgramsPage() {
         </section>
 
         {/* Program Types */}
-        <section className="py-20">
-          <div className="container-max px-4">
-            <div className={`text-center mb-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Training Options</h2>
-              <p className="text-xl text-gray-300">Flexible programs to fit your lifestyle and goals</p>
+        <section className="py-12 sm:py-16 md:py-20">
+          <div className="responsive-container">
+            <div className={`text-center mb-8 sm:mb-12 md:mb-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <h2 className="responsive-subtitle font-bold text-white mb-4 sm:mb-6">Training Options</h2>
+              <p className="responsive-body text-gray-300">Flexible programs to fit your lifestyle and goals</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 responsive-grid-gap">
               {programTypes.map((type, index) => (
-                <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                  <div className="text-green-400 mb-4 flex justify-center">{type.icon}</div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{type.title}</h3>
-                  <p className="text-gray-300 mb-6">{type.description}</p>
-                  <ul className="space-y-2">
+                <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl responsive-padding hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
+                  <div className="text-green-400 mb-3 sm:mb-4 flex justify-center text-2xl sm:text-3xl">{type.icon}</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">{type.title}</h3>
+                  <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">{type.description}</p>
+                  <ul className="space-y-1 sm:space-y-2">
                     {type.benefits.map((benefit, benefitIndex) => (
-                      <li key={benefitIndex} className="flex items-center text-gray-300">
-                        <CheckCircle className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
+                      <li key={benefitIndex} className="flex items-center text-gray-300 text-xs sm:text-sm">
+                        <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-2 flex-shrink-0" />
                         {benefit}
                       </li>
                     ))}

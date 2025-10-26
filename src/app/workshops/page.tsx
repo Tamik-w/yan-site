@@ -152,65 +152,65 @@ export default function WorkshopsPage() {
         </section> */}
 
         {/* Upcoming Workshops */}
-        <section id="upcoming" className="py-20">
-          <div className="container-max px-4">
-            <div className={`text-center mb-16 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Upcoming Workshops</h2>
-              <p className="text-xl text-gray-300">Book your spot in our next intensive session</p>
+        <section id="upcoming" className="py-12 sm:py-16 md:py-20">
+          <div className="responsive-container">
+            <div className={`text-center mb-8 sm:mb-12 md:mb-16 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <h2 className="responsive-subtitle font-bold text-white mb-4 sm:mb-6">Upcoming Workshops</h2>
+              <p className="responsive-body text-gray-300">Book your spot in our next intensive session</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 responsive-grid-gap">
               {upcomingWorkshops.map((workshop, index) => (
                 <div key={workshop.id} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                  <div className="p-8">
-                    <div className="flex justify-between items-start mb-4">
+                  <div className="responsive-padding">
+                    <div className="flex justify-between items-start mb-3 sm:mb-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-white mb-2">{workshop.title}</h3>
-                        <div className="flex items-center text-green-400 font-semibold">
-                          <Star className="h-5 w-5 mr-1" />
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">{workshop.title}</h3>
+                        <div className="flex items-center text-green-400 font-semibold text-sm sm:text-base">
+                          <Star className="h-4 w-4 sm:h-5 sm:w-5 mr-1" />
                           {workshop.level}
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-3xl font-bold text-green-400">{workshop.price}</div>
-                        <div className="text-sm text-gray-400">{workshop.spots}</div>
+                        <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-400">{workshop.price}</div>
+                        <div className="text-xs sm:text-sm text-gray-400">{workshop.spots}</div>
                       </div>
                     </div>
 
-                    <p className="text-gray-300 mb-6">{workshop.description}</p>
+                    <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">{workshop.description}</p>
 
-                    <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
+                    <div className="grid grid-cols-2 responsive-grid-gap mb-4 sm:mb-6 text-xs sm:text-sm">
                       <div className="flex items-center text-gray-300">
-                        <Calendar className="h-4 w-4 mr-2" />
+                        <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                         {workshop.date}
                       </div>
                       <div className="flex items-center text-gray-300">
-                        <Clock className="h-4 w-4 mr-2" />
+                        <Clock className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                         {workshop.time}
                       </div>
                       <div className="flex items-center text-gray-300">
-                        <MapPin className="h-4 w-4 mr-2" />
+                        <MapPin className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                         {workshop.location}
                       </div>
                       <div className="flex items-center text-gray-300">
-                        <Users className="h-4 w-4 mr-2" />
+                        <Users className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                         {workshop.instructor}
                       </div>
                     </div>
 
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-white mb-3">What You'll Learn:</h4>
-                      <ul className="space-y-2">
+                    <div className="mb-4 sm:mb-6">
+                      <h4 className="font-semibold text-white mb-2 sm:mb-3 text-sm sm:text-base">What You'll Learn:</h4>
+                      <ul className="space-y-1 sm:space-y-2">
                         {workshop.topics.map((topic, topicIndex) => (
-                          <li key={topicIndex} className="flex items-center text-gray-300">
-                            <CheckCircle className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
+                          <li key={topicIndex} className="flex items-center text-gray-300 text-xs sm:text-sm">
+                            <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-1 sm:mr-2 flex-shrink-0" />
                             {topic}
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <Link href="/contact" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-center block">
+                    <Link href="/contact" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-center block text-sm sm:text-base">
                       Register Now
                     </Link>
                   </div>

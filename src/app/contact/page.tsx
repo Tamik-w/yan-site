@@ -152,43 +152,43 @@ export default function ContactPage() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container-max mobile-safe-area w-full">
+        <div className="responsive-container w-full">
           {/* Hero Section */}
-          <div className={`text-center mb-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex items-center justify-center mb-6">
-              <MessageCircle className="h-12 w-12 text-green-400 mr-4 animate-pulse" />
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
+          <div className={`text-center mb-6 sm:mb-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className="flex items-center justify-center mb-4 sm:mb-6">
+              <MessageCircle className="h-8 w-8 sm:h-12 sm:w-12 text-green-400 mr-3 sm:mr-4 animate-pulse" />
+              <h1 className="responsive-subtitle font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
                 Get In Touch
               </h1>
             </div>
-            <p className="text-lg md:text-xl text-gray-200 mb-6 leading-relaxed">
+            <p className="responsive-body text-gray-200 mb-4 sm:mb-6 leading-relaxed">
               Ready to start your Olympic weightlifting journey? Contact us today!
             </p>
           </div>
 
           {/* Main Content - Side by Side */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 responsive-gap corner-spacing">
             {/* Left Side - Contact Form */}
             <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
-                <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
-                <p className="text-gray-300 mb-6">
+              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl responsive-padding">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">Send Us a Message</h2>
+                <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
                   Fill out the form below and we'll get back to you within 24 hours.
                 </p>
 
                 {isSubmitted ? (
-                  <div className="text-center py-8">
-                    <div className="bg-green-400/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-400/30">
-                      <CheckCircle className="h-8 w-8 text-green-400" />
+                  <div className="text-center py-6 sm:py-8">
+                    <div className="bg-green-400/20 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 border border-green-400/30">
+                      <CheckCircle className="h-6 w-6 sm:h-8 sm:w-8 text-green-400" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-                    <p className="text-gray-300">We'll get back to you soon.</p>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                    <p className="text-gray-300 text-sm sm:text-base">We'll get back to you soon.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 responsive-grid-gap">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
+                        <label htmlFor="name" className="block text-xs sm:text-sm font-semibold text-white mb-1 sm:mb-2">
                           Full Name *
                         </label>
                         <input
@@ -198,15 +198,15 @@ export default function ContactPage() {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm ${
+                          className={`w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm text-sm sm:text-base ${
                             errors.name ? 'border-red-400' : 'border-white/20'
                           }`}
                           placeholder="Your full name"
                         />
-                        {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+                        {errors.name && <p className="text-red-400 text-xs sm:text-sm mt-1">{errors.name}</p>}
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
+                        <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-white mb-1 sm:mb-2">
                           Email Address *
                         </label>
                         <input
@@ -216,18 +216,18 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm ${
+                          className={`w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm text-sm sm:text-base ${
                             errors.email ? 'border-red-400' : 'border-white/20'
                           }`}
                           placeholder="your@email.com"
                         />
-                        {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+                        {errors.email && <p className="text-red-400 text-xs sm:text-sm mt-1">{errors.email}</p>}
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 responsive-grid-gap">
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-semibold text-white mb-2">
+                        <label htmlFor="phone" className="block text-xs sm:text-sm font-semibold text-white mb-1 sm:mb-2">
                           Phone Number
                         </label>
                         <input
@@ -236,15 +236,15 @@ export default function ContactPage() {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm ${
+                          className={`w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm text-sm sm:text-base ${
                             errors.phone ? 'border-red-400' : 'border-white/20'
                           }`}
                           placeholder="(555) 123-4567"
                         />
-                        {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
+                        {errors.phone && <p className="text-red-400 text-xs sm:text-sm mt-1">{errors.phone}</p>}
                       </div>
                       <div>
-                        <label htmlFor="service" className="block text-sm font-semibold text-white mb-2">
+                        <label htmlFor="service" className="block text-xs sm:text-sm font-semibold text-white mb-1 sm:mb-2">
                           Service Interest
                         </label>
                         <select
@@ -252,7 +252,7 @@ export default function ContactPage() {
                           name="service"
                           value={formData.service}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm"
+                          className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm text-sm sm:text-base"
                         >
                           <option value="">Select a service</option>
                           {services.map((service, index) => (
@@ -263,7 +263,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">
+                      <label htmlFor="message" className="block text-xs sm:text-sm font-semibold text-white mb-1 sm:mb-2">
                         Message *
                       </label>
                       <textarea
@@ -272,17 +272,17 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        rows={4}
-                        className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm ${
+                        rows={3}
+                        className={`w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm text-sm sm:text-base ${
                           errors.message ? 'border-red-400' : 'border-white/20'
                         }`}
                         placeholder="Tell us about your goals, experience level, or any questions you have..."
                       />
-                      {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
+                      {errors.message && <p className="text-red-400 text-xs sm:text-sm mt-1">{errors.message}</p>}
                     </div>
 
                     {errors.submit && (
-                      <div className="bg-red-500/20 border border-red-500/30 text-red-300 px-4 py-3 rounded-lg text-sm">
+                      <div className="bg-red-500/20 border border-red-500/30 text-red-300 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-xs sm:text-sm">
                         {errors.submit}
                       </div>
                     )}
@@ -290,16 +290,16 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center"
+                      className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 sm:py-4 sm:px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center text-sm sm:text-base"
                     >
                       {isLoading ? (
                         <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-white mr-2"></div>
                           Sending...
                         </>
                       ) : (
                         <>
-                          <Send className="mr-2 h-5 w-5" />
+                          <Send className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                           Send Message
                         </>
                       )}
@@ -310,32 +310,32 @@ export default function ContactPage() {
             </div>
 
             {/* Right Side - Contact Info */}
-            <div className={`space-y-4 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+            <div className={`space-y-3 sm:space-y-4 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
               {/* Interactive Map */}
-              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4">
-                <h3 className="text-lg font-bold text-white mb-4">Find Us</h3>
-                <div className="h-48 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg flex items-center justify-center border border-green-400/30">
+              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl responsive-padding">
+                <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Find Us</h3>
+                <div className="h-32 sm:h-40 md:h-48 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg flex items-center justify-center border border-green-400/30">
                   <div className="text-center">
-                    <MapPin className="h-8 w-8 text-green-400 mx-auto mb-2" />
-                    <p className="text-white font-semibold text-sm">Interactive Map</p>
+                    <MapPin className="h-6 w-6 sm:h-8 sm:w-8 text-green-400 mx-auto mb-2" />
+                    <p className="text-white font-semibold text-xs sm:text-sm">Interactive Map</p>
                     <p className="text-gray-300 text-xs">123 Gym Street, Fitness City</p>
-                    <button className="mt-2 bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-1 rounded transition-colors">
+                    <button className="mt-2 bg-green-600 hover:bg-green-700 text-white text-xs px-2 py-1 sm:px-3 rounded transition-colors">
                       View on Google Maps
                     </button>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4">
-                <h3 className="text-lg font-bold text-white mb-4">Contact Information</h3>
-                <div className="space-y-3">
+              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl responsive-padding">
+                <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Contact Information</h3>
+                <div className="space-y-2 sm:space-y-3">
                   {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-center p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                      <div className="bg-green-400/20 w-8 h-8 rounded-full flex items-center justify-center mr-3 border border-green-400/30">
-                        <div className="text-green-400 text-sm">{info.icon}</div>
+                    <div key={index} className="flex items-center p-2 sm:p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                      <div className="bg-green-400/20 w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mr-2 sm:mr-3 border border-green-400/30">
+                        <div className="text-green-400 text-xs sm:text-sm">{info.icon}</div>
                       </div>
                       <div>
-                        <div className="font-semibold text-white text-sm">{info.title}</div>
+                        <div className="font-semibold text-white text-xs sm:text-sm">{info.title}</div>
                         <div className="text-xs text-gray-300">{info.details}</div>
                         <div className="text-xs text-gray-400">{info.description}</div>
                       </div>
