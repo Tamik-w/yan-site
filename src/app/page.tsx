@@ -11,24 +11,21 @@ const testimonials = [
     name: "Dmytrii Tamurov",
     role: "Elite Athlete",
     content: "Not bad.",
-    rating: 5,
-    image: "https://media.tenor.com/o68Fvi_vj8QAAAAi/betterttv-meme.gif"
+    rating: 5
   },
   {
     id: 2,
     name: "Name 2",
     role: "role 2",
     content: "Some comment",
-    rating: 5,
-    image: ""
+    rating: 5
   },
   {
     id: 3,
     name: "Name 3",
     role: "role 3",
     content: "Some comment",
-    rating: 5,
-    image: ""
+    rating: 5
   },
 
 ];
@@ -137,18 +134,8 @@ export default function HomePage() {
                     <blockquote className="text-lg text-gray-700 italic mb-6">
                       "{testimonials[currentTestimonial].content}"
                     </blockquote>
-                    
-                    <div className="flex items-center space-x-4">
-                      <img
-                        src={testimonials[currentTestimonial].image}
-                        alt={testimonials[currentTestimonial].name}
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div>
                         <div className="font-semibold text-gray-900">{testimonials[currentTestimonial].name}</div>
                         <div className="text-green-600 text-sm">{testimonials[currentTestimonial].role}</div>
-                      </div>
-                    </div>
                   </div>
 
                   {/* Navigation Buttons */}
