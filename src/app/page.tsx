@@ -8,23 +8,23 @@ import { ArrowRight, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: "Dmytrii Tamurov",
-    role: "Elite Athlete",
-    content: "Not bad.",
+    name: "Connor Brogan",
+    role: "Powerlifter - Masters Division",
+    content: "Within a year of working with Adrian, I went from attending adult “Move and Lift” classes to competing in sanctioned powerlifting meets. Adrian guided me from being a casual gym-goer to becoming an athlete who set national federation records in my weight and age class.What stood out most was his holistic approach to training. I didn’t just get stronger physically — Adrian’s methods helped me develop greater focus, clarity, resilience, and stress management. I noticed real improvements in my concentration, mindset, and ability to handle daily challenges. Adrian didn’t just train me to be a better athlete; he pushed me to become the best version of myself, both in and out of the gym.",
     rating: 5
   },
   {
     id: 2,
-    name: "Name 2",
-    role: "role 2",
-    content: "Some comment",
+    name: "Mateo Landa",
+    role: "Running Back - GCVI",
+    content: "I remember the first time Adrian came to coach me in the weight room — I was skeptical. I’ve never been quick to warm up to new coaches, and it usually takes me a while to adapt. But over time, he became one of my favorite coaches and someone I’ve built a strong connection with. It’s clear that Adrian genuinely loves coaching and is passionate about what he does. That really stood out to me when he took the time to give me thoughtful feedback, especially on my deadlift and power clean. He taught me the form that best suited my body type and introduced me to exercises that helped me improve those lifts. He consistently pushed me to my limits and helped me break past them. Because of that, I’ve grown not just physically but mentally as well. Adrian is easily one of the best lifting coaches I’ve ever had, and I feel truly lucky to have been coached by him.",
     rating: 5
   },
   {
     id: 3,
-    name: "Name 3",
-    role: "role 3",
-    content: "Some comment",
+    name: "Dmytrii Tamurov",
+    role: "Former Ukrainian National Team Athlete",
+    content: "Love the idea and their approach - building the foundation of strength and technique while planning for the long term. The philosophy is to embrace the suffering of growth and witness yourself becoming someone who once existed only in your imagination.",
     rating: 5
   },
 
@@ -47,7 +47,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden md:h-screen md:overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden lg:h-screen lg:overflow-hidden">
       {/* Background Image with Parallax Effect */}
       <div className="absolute inset-0">
         <Image
@@ -64,7 +64,7 @@ export default function HomePage() {
       {/* Content Container */}
       <div className="relative z-10 min-h-screen flex items-center">
         <div className="container-max mobile-safe-area w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen corner-spacing">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen vertical-spacing">
             
             {/* Left Section - Main Content */}
             <div className="text-white space-y-8">
@@ -130,12 +130,12 @@ export default function HomePage() {
 
                 {/* Testimonial Content */}
                 <div className="relative">
-                  <div className="bg-white rounded-xl p-6 shadow-lg">
+                  <div className="bg-white rounded-xl p-6 shadow-lg max-h-[200px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                     <blockquote className="text-lg text-gray-700 italic mb-6">
                       "{testimonials[currentTestimonial].content}"
                     </blockquote>
-                        <div className="font-semibold text-gray-900">{testimonials[currentTestimonial].name}</div>
-                        <div className="text-green-600 text-sm">{testimonials[currentTestimonial].role}</div>
+                    <div className="font-semibold text-gray-900">{testimonials[currentTestimonial].name}</div>
+                    <div className="text-green-600 text-sm">{testimonials[currentTestimonial].role}</div>
                   </div>
 
                   {/* Navigation Buttons */}

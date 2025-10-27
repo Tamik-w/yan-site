@@ -151,7 +151,7 @@ export default function ProgramsPage() {
   ];
 
   return (
-    <div className="relative min-h-screen md:h-screen overflow-hidden md:overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden lg:h-screen lg:overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -169,7 +169,7 @@ export default function ProgramsPage() {
         {/* Hero Section */}
         <section className="min-h-screen flex items-center">
           <div className="container-max mobile-safe-area w-full">
-            <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 corner-spacing ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 vertical-spacing ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="flex items-center justify-center mb-8">
                 <Target className="h-16 w-16 text-green-400 mr-4 animate-pulse" />
                 <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
@@ -202,7 +202,7 @@ export default function ProgramsPage() {
               <p className="text-xl text-gray-300">Flexible programs to fit your lifestyle and goals</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 corner-spacing">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 vertical-spacing">
               {programTypes.map((type, index) => (
                 <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
                   <div className="text-green-400 mb-4 flex justify-center">{type.icon}</div>

@@ -105,7 +105,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="relative min-h-screen md:h-screen overflow-hidden md:overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden lg:h-screen lg:overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -123,7 +123,7 @@ export default function AboutPage() {
         {/* Hero Section */}
         <section className="min-h-screen flex items-center">
           <div className="container-max mobile-safe-area w-full">
-            <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 corner-spacing ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 vertical-spacing ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="flex items-center justify-center mb-8">
                 <Trophy className="h-16 w-16 text-green-400 mr-4 animate-pulse" />
                 <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
@@ -141,7 +141,7 @@ export default function AboutPage() {
         {/* Stats Section */}
         <section className="section-spacing">
           <div className="container-max px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 corner-spacing">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 vertical-spacing">
               {stats.map((stat, index) => (
                 <div key={index} className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
                   <div className="text-4xl md:text-5xl font-bold text-green-400 mb-2">{stat.number}</div>
@@ -155,7 +155,7 @@ export default function AboutPage() {
         {/* Our Story */}
         <section className="section-spacing">
           <div className="container-max px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center corner-spacing">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center vertical-spacing">
               <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Story</h2>
                 <p className="text-lg text-gray-300 mb-6">

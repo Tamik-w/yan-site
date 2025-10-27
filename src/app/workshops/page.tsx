@@ -16,39 +16,39 @@ export default function WorkshopsPage() {
     {
       id: 1,
       title: "Introduction to Snatch",
-      date: "March 15, 2024",
-      time: "10:00 AM - 2:00 PM",
+      date: "TBD (Saturday)",
+      time: "10:00 AM - 11:30 AM",
       location: "Fortis Fitness West",
       instructor: "Coach Adrian",
       price: "$100",
-      spots: "8/12 spots filled",
       level: "Beginner",
-      description: "Deep dive into snatch technique with video analysis, drills, and personalized feedback.",
+      description: "A 90-minute intensive introducing Snatch and Clean & Jerk technique, including a presentation, technique analysis, practical drills, personalized feedback, and individualized application.",
       topics: [
-        "Proper starting position",
-        "First and second pull mechanics",
-        "Receiving position",
-        "Common mistakes and corrections",
-        "Video analysis session"
+        "A slideshow presentation about the lift (snatch / clean and jerk)",
+        "Warm Up – Mobility Assessment",
+        "Progression & Regressions for the lift",
+        "Introduction to technique complexes",
+        "Technique Testing",
+        "Q&A portion"
       ]
     },
     {
       id: 2,
       title: "Introduction to Clean & Jerk",
-      date: "March 22, 2024",
-      time: "9:00 AM - 1:00 PM",
+      date: "Date TBD (Saturday)",
+      time: "10:00 AM - 11:30 AM",
       location: "Fortis Fitness West",
       instructor: "Coach Adrian",
       price: "$100",
-      spots: "6/12 spots filled",
       level: "Beginner",
-      description: "Learn the fundamentals of clean and jerk with step-by-step progression.",
+      description: "A 90-minute intensive introducing Snatch and Clean & Jerk technique, including a presentation, technique analysis, practical drills, personalized feedback, and individualized application.",
       topics: [
-        "Clean technique breakdown",
-        "Jerk positioning and timing",
-        "Footwork and balance",
-        "Breathing and bracing",
-        "Practice with light weights"
+        "A slideshow presentation about the lift (snatch / clean and jerk)",
+        "Warm Up – Mobility Assessment",
+        "Progression & Regressions for the lift",
+        "Introduction to technique complexes",
+        "Technique Testing",
+        "Q&A portion"
       ]
     }
   ];
@@ -81,7 +81,7 @@ export default function WorkshopsPage() {
   ];
 
   return (
-    <div className="relative min-h-screen md:h-screen overflow-hidden md:overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden lg:h-screen lg:overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -152,65 +152,65 @@ export default function WorkshopsPage() {
         </section> */}
 
         {/* Upcoming Workshops */}
-        <section id="upcoming" className="section-spacing">
-          <div className="container-max px-4">
-            <div className={`text-center mb-16 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Upcoming Workshops</h2>
-              <p className="text-xl text-gray-300">Book your spot in our next intensive session</p>
+        <section id="upcoming" className="min-h-screen flex items-center">
+          <div className="container-max w-full px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-24 pb-32 sm:pb-36 md:pb-40 lg:pb-44 xl:pb-48">
+            <div className={`text-center mb-12 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Upcoming Workshops</h2>
+              <p className="text-lg text-gray-300">Book your spot in our next intensive session</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 corner-spacing">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {upcomingWorkshops.map((workshop, index) => (
-                <div key={workshop.id} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                  <div className="p-8">
-                    <div className="flex justify-between items-start mb-4">
+                <div key={workshop.id} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl overflow-hidden hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
+                  <div className="p-5">
+                    <div className="flex justify-between items-start mb-3">
                       <div>
-                        <h3 className="text-2xl font-bold text-white mb-2">{workshop.title}</h3>
-                        <div className="flex items-center text-green-400 font-semibold">
-                          <Star className="h-5 w-5 mr-1" />
+                        <h3 className="text-lg font-bold text-white mb-1">{workshop.title}</h3>
+                        <div className="flex items-center text-green-400 font-semibold text-sm">
+                          <Star className="h-4 w-4 mr-1" />
                           {workshop.level}
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-3xl font-bold text-green-400">{workshop.price}</div>
-                        <div className="text-sm text-gray-400">{workshop.spots}</div>
+                        <div className="text-xl font-bold text-green-400">{workshop.price}</div>
+                        <div className="text-xs text-gray-400">{workshop.spots}</div>
                       </div>
                     </div>
 
-                    <p className="text-gray-300 mb-6">{workshop.description}</p>
+                    <p className="text-gray-300 mb-4 text-sm">{workshop.description}</p>
 
-                    <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
+                    <div className="grid grid-cols-2 gap-3 mb-4 text-xs">
                       <div className="flex items-center text-gray-300">
-                        <Calendar className="h-4 w-4 mr-2" />
+                        <Calendar className="h-3 w-3 mr-2" />
                         {workshop.date}
                       </div>
                       <div className="flex items-center text-gray-300">
-                        <Clock className="h-4 w-4 mr-2" />
+                        <Clock className="h-3 w-3 mr-2" />
                         {workshop.time}
                       </div>
                       <div className="flex items-center text-gray-300">
-                        <MapPin className="h-4 w-4 mr-2" />
+                        <MapPin className="h-3 w-3 mr-2" />
                         {workshop.location}
                       </div>
                       <div className="flex items-center text-gray-300">
-                        <Users className="h-4 w-4 mr-2" />
+                        <Users className="h-3 w-3 mr-2" />
                         {workshop.instructor}
                       </div>
                     </div>
 
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-white mb-3">What You'll Learn:</h4>
-                      <ul className="space-y-2">
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-white mb-2 text-sm">What You'll Learn:</h4>
+                      <ul className="space-y-1">
                         {workshop.topics.map((topic, topicIndex) => (
-                          <li key={topicIndex} className="flex items-center text-gray-300">
-                            <CheckCircle className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
+                          <li key={topicIndex} className="flex items-center text-xs text-gray-300">
+                            <CheckCircle className="h-3 w-3 text-green-400 mr-2 flex-shrink-0" />
                             {topic}
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <Link href="/contact" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-center block">
+                    <Link href="/contact" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-center block text-sm">
                       Register Now
                     </Link>
                   </div>

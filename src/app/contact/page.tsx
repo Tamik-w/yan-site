@@ -137,11 +137,11 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="relative min-h-screen md:h-screen overflow-hidden md:overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden lg:h-screen lg:overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="image-1.jpeg"
+          src="image-4.jpeg"
           alt="Olympic weightlifting facility"
           fill
           className="object-cover"
@@ -167,7 +167,7 @@ export default function ContactPage() {
           </div>
 
           {/* Main Content - Side by Side */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 corner-spacing">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 vertical-spacing">
             {/* Left Side - Contact Form */}
             <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
               <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
