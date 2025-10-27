@@ -45,7 +45,7 @@ export default function CoachingPage() {
       title: "Coach",
       experience: "10+ years",
       credentials: "BSc Psychology, BSc Biology, NSCA Women's Fitness Specialist",
-      image: "image-3.jpeg",
+      image: "image-3.jpg",
       specialties: ["Women's Fitness", "Pre & Post Natal Training", "Resistance Training"]
     },
     {
@@ -53,7 +53,7 @@ export default function CoachingPage() {
       title: "Coach",
       experience: "5+ years",
       credentials: "Fitness and Health Promotion, NCCP Competition Introduction",
-      image: "image-2.jpeg",
+      image: "image-2.jpg",
       specialties: ["Weightlifting", "Powerlifting", "Strongman", "Youth Resistance Training"]
     }
   ];

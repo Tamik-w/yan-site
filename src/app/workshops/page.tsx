@@ -58,7 +58,7 @@ export default function WorkshopsPage() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="image-5.jpeg"
+          src="image-5.jpg"
           alt="Olympic weightlifting facility"
           fill
           className="object-cover"
