@@ -137,7 +137,7 @@ export default function ContactPage() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="image-4.jpeg"
+          src="image-4.jpg"
           alt="Olympic weightlifting facility"
           fill
           className="object-cover"
