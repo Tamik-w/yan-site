@@ -109,19 +109,13 @@ export default function ContactPage() {
       icon: <Instagram className="h-6 w-6" />,
       title: "Instagram Katerina",
       details: "@1flykat",
-      description: "Follow us for updates and tips"
+      description: "Follow Katerina"
     },
     {
       icon: <Instagram className="h-6 w-6" />,
       title: "Instagram Adrian",
       details: "@grassrootsliftingcoach",
-      description: "Coaching content and programs"
-    },
-    {
-      icon: <MapPin className="h-6 w-6" />,
-      title: "Address",
-      details: "3040 Universal Dr, Mississauga, ON L4X 2C8",
-      description: "Visit our training facility"
+      description: "Follow Adrian"
     }
   ];
 
