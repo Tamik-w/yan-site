@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle, MessageCircle, Instagram } from 'lucide-react';
 
 export default function ContactPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -100,40 +100,36 @@ export default function ContactPage() {
 
   const contactInfo = [
     {
-      icon: <Phone className="h-6 w-6" />,
-      title: "Phone",
-      details: "+1 (555) 123-4567",
-      description: "Call us for immediate assistance"
-    },
-    {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
       details: "grassrootsweightlifting@gmail.com",
       description: "Send us an email anytime"
     },
     {
-      icon: <MapPin className="h-6 w-6" />,
-      title: "Address",
-      details: "123 Gym Street, Fitness City, FC 12345",
-      description: "Visit our training facility"
+      icon: <Instagram className="h-6 w-6" />,
+      title: "Instagram Katerina",
+      details: "@1flykat",
+      description: "Follow us for updates and tips"
     },
     {
-      icon: <Clock className="h-6 w-6" />,
-      title: "Hours",
-      details: "Mon-Fri: 6AM-10PM, Sat-Sun: 8AM-8PM",
-      description: "We're here when you need us"
+      icon: <Instagram className="h-6 w-6" />,
+      title: "Instagram Adrian",
+      details: "@grassrootsliftingcoach",
+      description: "Coaching content and programs"
+    },
+    {
+      icon: <MapPin className="h-6 w-6" />,
+      title: "Address",
+      details: "3040 Universal Dr, Mississauga, ON L4X 2C8",
+      description: "Visit our training facility"
     }
   ];
 
   const services = [
-    "Personal Coaching",
-    "Group Training",
-    "Workshops",
-    "Programs",
-    "Online Training",
-    "Competition Prep",
-    "Youth Programs",
-    "Masters Training"
+    "Consultation",
+    "Online Coaching",
+    "Introduction to Snatch",
+    "Introduction to Clean & Jerk"
   ];
 
   return (
@@ -152,7 +148,7 @@ export default function ContactPage() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container-max mobile-safe-area w-full">
+        <div className="container-max w-full px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-24 pb-32 sm:pb-36 md:pb-40 lg:pb-44 xl:pb-48">
           {/* Hero Section */}
           <div className={`text-center mb-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="flex items-center justify-center mb-6">
@@ -167,7 +163,7 @@ export default function ContactPage() {
           </div>
 
           {/* Main Content - Side by Side */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 vertical-spacing">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Side - Contact Form */}
             <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
               <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
@@ -314,15 +310,28 @@ export default function ContactPage() {
               {/* Interactive Map */}
               <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4">
                 <h3 className="text-lg font-bold text-white mb-4">Find Us</h3>
-                <div className="h-48 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg flex items-center justify-center border border-green-400/30">
-                  <div className="text-center">
-                    <MapPin className="h-8 w-8 text-green-400 mx-auto mb-2" />
-                    <p className="text-white font-semibold text-sm">Interactive Map</p>
-                    <p className="text-gray-300 text-xs">123 Gym Street, Fitness City</p>
-                    <button className="mt-2 bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-1 rounded transition-colors">
-                      View on Google Maps
-                    </button>
-                  </div>
+                <div className="h-48 rounded-lg overflow-hidden border border-green-400/30">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.1234567890!2d-79.1234567890!3d43.1234567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDA3JzI0LjQiTiA3OcKwMDcnMjQuNCJX!5e0!3m2!1sen!2sca!4v1234567890123!5m2!1sen!2sca"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Grassroots Lifting Location"
+                  ></iframe>
+                </div>
+                <div className="mt-3 text-center">
+                  <p className="text-gray-300 text-xs">3040 Universal Dr, Mississauga, ON L4X 2C8</p>
+                  <a 
+                    href="https://maps.google.com/?q=3040+Universal+Dr,+Mississauga,+ON+L4X+2C8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-block bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-1 rounded transition-colors"
+                  >
+                    View on Google Maps
+                  </a>
                 </div>
               </div>
 
