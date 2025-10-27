@@ -53,39 +53,12 @@ export default function WorkshopsPage() {
     }
   ];
 
-  const workshopTypes = [
-    {
-      title: "Technique Workshops",
-      description: "Focus on perfecting your form and movement patterns",
-      icon: <Award className="h-8 w-8" />,
-      features: ["Video analysis", "Personal feedback", "Drill progression", "Common mistake corrections"]
-    },
-    {
-      title: "Competition Prep",
-      description: "Get ready for your next competition with strategic training",
-      icon: <Star className="h-8 w-8" />,
-      features: ["Strategy planning", "Mental preparation", "Mock competitions", "Peak performance"]
-    },
-    {
-      title: "Youth Programs",
-      description: "Age-appropriate training for young athletes",
-      icon: <Users className="h-8 w-8" />,
-      features: ["Safe progression", "Fun learning", "Basic movements", "Goal setting"]
-    },
-    {
-      title: "Masters Training",
-      description: "Specialized programs for athletes 35+",
-      icon: <Zap className="h-8 w-8" />,
-      features: ["Injury prevention", "Recovery focus", "Modified programming", "Long-term health"]
-    }
-  ];
-
   return (
     <div className="relative min-h-screen overflow-hidden lg:h-screen lg:overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="image-1.jpeg"
+          src="image-5.jpeg"
           alt="Olympic weightlifting facility"
           fill
           className="object-cover"
@@ -173,7 +146,6 @@ export default function WorkshopsPage() {
                       </div>
                       <div className="text-right">
                         <div className="text-xl font-bold text-green-400">{workshop.price}</div>
-                        <div className="text-xs text-gray-400">{workshop.spots}</div>
                       </div>
                     </div>
 
