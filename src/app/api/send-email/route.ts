@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'tamurovdm@gmail.com',
+      to: 'grassrootsweightlifting@gmail.com',
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
