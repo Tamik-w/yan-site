@@ -123,10 +123,10 @@ export default function CoachingPage() {
                             <img
                               src={coach.image}
                               alt={coach.name}
-                              className={`w-16 h-16 rounded-full object-cover ${coach.name === 'Katerina' ? 'transform translate-x-12' : ''}`}
+                              className="w-16 h-16 rounded-full object-cover"
                               style={{
-                                transform: coach.name === 'Katerina' ? 'translateX(50px) scale(1.2)' : 'scale(1.2)',
-                                objectPosition: coach.name === 'Katerina' ? 'center right' : 'center'
+                                transform: 'scale(1.2)',
+                                objectPosition: 'center'
                               }}
                             />
                           </div>
