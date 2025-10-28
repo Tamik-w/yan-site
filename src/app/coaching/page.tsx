@@ -80,29 +80,29 @@ export default function CoachingPage() {
             {/* Left Side - Coaching Options */}
             <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
               <h2 className="text-2xl font-bold text-white mb-6 text-center lg:text-left">Choose Your Coaching Style</h2>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {coachingOptions.map((option, index) => (
-                  <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-3 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                    <div className="text-center mb-2">
-                      <h3 className="text-lg font-bold text-white mb-1">{option.title}</h3>
-                      <div className="text-xl font-bold text-green-400 mb-1">{option.price}</div>
-                      <div className="flex items-center justify-center text-gray-300 mb-2 text-sm">
-                        <Clock className="h-3 w-3 mr-1" />
+                  <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-2.5 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
+                    <div className="text-center mb-1.5">
+                      <h3 className="text-base font-bold text-white mb-1">{option.title}</h3>
+                      <div className="text-lg font-bold text-green-400 mb-1">{option.price}</div>
+                      <div className="flex items-center justify-center text-gray-300 mb-1.5 text-xs">
+                        <Clock className="h-2.5 w-2.5 mr-1" />
                         {option.duration}
                       </div>
-                      <p className="text-gray-300 mb-2 text-xs">{option.description}</p>
+                      <p className="text-gray-300 mb-1.5 text-xs">{option.description}</p>
                     </div>
 
-                    <ul className="space-y-1 mb-4">
+                    <ul className="space-y-0.5 mb-3">
                       {option.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start text-gray-200 text-xs">
-                          <CheckCircle className="h-3 w-3 text-green-400 mr-2 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="h-2.5 w-2.5 text-green-400 mr-1.5 flex-shrink-0 mt-0.5" />
                           {feature}
                         </li>
                       ))}
                     </ul>
 
-                    <Link href="/contact" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-center block text-sm">
+                    <Link href="/contact" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-1.5 px-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-center block text-xs">
                       Get Started
                     </Link>
                   </div>
@@ -119,11 +119,17 @@ export default function CoachingPage() {
                     <div className="p-4">
                       <div className="flex items-start space-x-3">
                         {coach.image && (
-                          <img
-                            src={coach.image}
-                            alt={coach.name}
-                            className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-                          />
+                          <div className="relative flex-shrink-0">
+                            <img
+                              src={coach.image}
+                              alt={coach.name}
+                              className={`w-16 h-16 rounded-full object-cover ${coach.name === 'Katerina' ? 'transform translate-x-12' : ''}`}
+                              style={{
+                                transform: coach.name === 'Katerina' ? 'translateX(50px) scale(1.2)' : 'scale(1.2)',
+                                objectPosition: coach.name === 'Katerina' ? 'center right' : 'center'
+                              }}
+                            />
+                          </div>
                         )}
                         <div className="flex-1">
                           <h3 className="text-lg font-bold text-white mb-1">{coach.name}</h3>

@@ -12,22 +12,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if environment variables are set
+    // Check if environment variables are set with more detailed logging
+    console.log('Environment check:', {
+      EMAIL_USER: process.env.EMAIL_USER ? 'Set' : 'Missing',
+      EMAIL_PASS: process.env.EMAIL_PASS ? 'Set' : 'Missing',
+      NODE_ENV: process.env.NODE_ENV
+    });
+
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.error('Missing email environment variables');
+      console.error('Missing email environment variables:', {
+        EMAIL_USER: !!process.env.EMAIL_USER,
+        EMAIL_PASS: !!process.env.EMAIL_PASS
+      });
       return NextResponse.json(
-        { error: 'Email service not configured. Please contact support.' },
+        { error: 'Email service not configured. Please check .env.local file and restart the server.' },
         { status: 500 }
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    // Test the transporter creation
+    let transporter;
+    try {
+      transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+      
+      // Verify the connection
+      await transporter.verify();
+      console.log('Email transporter verified successfully');
+    } catch (transporterError) {
+      console.error('Transporter creation/verification failed:', transporterError);
+      return NextResponse.json(
+        { error: 'Email service configuration error. Please check your credentials.' },
+        { status: 500 }
+      );
+    }
 
     const mailOptions = {
       from: process.env.EMAIL_USER,

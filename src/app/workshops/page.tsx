@@ -126,7 +126,7 @@ export default function WorkshopsPage() {
 
         {/* Upcoming Workshops */}
         <section id="upcoming" className="min-h-screen flex items-center">
-          <div className="container-max w-full px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-24 pb-32 sm:pb-36 md:pb-40 lg:pb-44 xl:pb-48">
+          <div className="container-max w-full px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-24 pb-32 sm:pb-36 md:pb-40 lg:pb-44 xl:pb-48" style={{ marginBottom: '50px' }}>
             <div className={`text-center mb-12 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Upcoming Workshops</h2>
               <p className="text-lg text-gray-300">Book your spot in our next intensive session</p>

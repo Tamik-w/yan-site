@@ -142,7 +142,7 @@ export default function ContactPage() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container-max w-full px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-24 pb-32 sm:pb-36 md:pb-40 lg:pb-44 xl:pb-48">
+          <div className="container-max w-full px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-24 pb-32 sm:pb-36 md:pb-40 lg:pb-44 xl:pb-48" style={{ marginTop: '15px' }}>
           {/* Hero Section */}
           <div className={`text-center mb-6 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="flex items-center justify-center mb-4">
