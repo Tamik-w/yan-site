@@ -1,191 +1,208 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonials = [
   {
     id: 1,
-    name: "Connor Brogan",
-    role: "Powerlifter - Masters Division",
-    content: "Within a year of working with Adrian, I went from attending adult “Move and Lift” classes to competing in sanctioned powerlifting meets. Adrian guided me from being a casual gym-goer to becoming an athlete who set national federation records in my weight and age class.What stood out most was his holistic approach to training. I didn’t just get stronger physically — Adrian’s methods helped me develop greater focus, clarity, resilience, and stress management. I noticed real improvements in my concentration, mindset, and ability to handle daily challenges. Adrian didn’t just train me to be a better athlete; he pushed me to become the best version of myself, both in and out of the gym.",
-    rating: 5
+    name: 'Connor Brogan',
+    role: 'Powerlifter - Masters Division',
+    content:
+      'Within a year of working with Adrian, I went from attending adult "Move and Lift" classes to competing in sanctioned powerlifting meets. Adrian guided me from being a casual gym-goer to becoming an athlete who set national federation records in my weight and age class. What stood out most was his holistic approach to training. I did not just get stronger physically - Adrian\'s methods helped me develop greater focus, clarity, resilience, and stress management. I noticed real improvements in my concentration, mindset, and ability to handle daily challenges. Adrian did not just train me to be a better athlete; he pushed me to become the best version of myself, both in and out of the gym.',
   },
   {
     id: 2,
-    name: "Mateo Landa",
-    role: "Running Back - GCVI",
-    content: "I remember the first time Adrian came to coach me in the weight room — I was skeptical. I’ve never been quick to warm up to new coaches, and it usually takes me a while to adapt. But over time, he became one of my favorite coaches and someone I’ve built a strong connection with. It’s clear that Adrian genuinely loves coaching and is passionate about what he does. That really stood out to me when he took the time to give me thoughtful feedback, especially on my deadlift and power clean. He taught me the form that best suited my body type and introduced me to exercises that helped me improve those lifts. He consistently pushed me to my limits and helped me break past them. Because of that, I’ve grown not just physically but mentally as well. Adrian is easily one of the best lifting coaches I’ve ever had, and I feel truly lucky to have been coached by him.",
-    rating: 5
+    name: 'Mateo Landa',
+    role: 'Running Back - GCVI',
+    content:
+      'I remember the first time Adrian came to coach me in the weight room - I was skeptical. I have never been quick to warm up to new coaches, and it usually takes me a while to adapt. But over time, he became one of my favorite coaches and someone I have built a strong connection with. It is clear that Adrian genuinely loves coaching and is passionate about what he does. That really stood out to me when he took the time to give me thoughtful feedback, especially on my deadlift and power clean. He taught me the form that best suited my body type and introduced me to exercises that helped me improve those lifts. He consistently pushed me to my limits and helped me break past them. Because of that, I have grown not just physically but mentally as well. Adrian is easily one of the best lifting coaches I have ever had, and I feel truly lucky to have been coached by him.',
   },
   {
     id: 3,
-    name: "Dmytrii Tamurov",
-    role: "Former Ukrainian National Team Athlete",
-    content: "Love the idea and their approach - building the foundation of strength and technique while planning for the long term. The philosophy is to embrace the suffering of growth and witness yourself becoming someone who once existed only in your imagination.",
-    rating: 5
+    name: 'Dmytrii Tamurov',
+    role: 'Former Ukrainian National Team Athlete',
+    content:
+      'Love the idea and their approach - building the foundation of strength and technique while planning for the long term. The philosophy is to embrace the suffering of growth and witness yourself becoming someone who once existed only in your imagination.',
   },
-
 ];
 
 export default function HomePage() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [current, setCurrent] = useState(0);
+  const stripRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
+  const scrollToIndex = (index: number) => {
+    const nextIndex = (index + testimonials.length) % testimonials.length;
+    const strip = stripRef.current;
+    if (!strip) return;
 
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prevIndex) => (prevIndex + 1) % testimonials.length);
+    const card = strip.children[nextIndex] as HTMLElement | undefined;
+    if (!card) return;
+
+    setCurrent(nextIndex);
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
   };
 
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
+  const goNext = () => scrollToIndex(current + 1);
+  const goPrev = () => scrollToIndex(current - 1);
 
   return (
-    <div className="relative min-h-screen overflow-hidden lg:h-screen lg:overflow-hidden">
-      {/* Background Image with Parallax Effect */}
-      <div className="absolute inset-0">
-        <Image
-          src="image-1.jpeg"
-          alt="Olympic weightlifting facility"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
-      </div>
+    <div className="relative isolate bg-[#f4f5f7]">
+      <Image
+        src="/image-1.jpeg"
+        alt="Olympic weightlifting facility"
+        fill
+        priority
+        className="-z-20 object-cover opacity-10"
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#f8fafc]/95 via-[#f3f4f6]/95 to-[#e9ecef]/95" />
 
-      {/* Content Container */}
-      <div className="relative z-10 min-h-screen flex items-center">
-        <div className="container-max mobile-safe-area w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen vertical-spacing">
-            
-            {/* Left Section - Main Content */}
-            <div className="text-white space-y-8">
-              {/* Logo and Title */}
-              <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                <div className="flex items-center mb-6">
-                  <div>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
-                      Grassroots Lifting
-                    </h1>
-                    <div className="h-1 w-32 bg-gradient-to-r from-green-400 to-green-600 mt-2"></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Banner Text */}
-              <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  As it should be
-                </h2>
-                <p className="text-xl text-gray-200 leading-relaxed max-w-lg">
-                Get stronger and learn through coaching that’s honest, practical, and rooted in tradition. Built from the lessons of mentors, the patterns of success, and a community that grows together.
-                </p>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className={`flex flex-col sm:flex-row gap-6 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                <Link 
-                  href="/contact" 
-                  className="group bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center"
-                >
-                  Get Started Today
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+      <section className="container-max px-4 pb-8 pt-4 sm:px-6 lg:px-8 lg:pb-12 lg:pt-6">
+        <div className="rounded-3xl border border-[#e5e7eb] bg-white p-4 shadow-sm sm:p-5 lg:p-6">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
+            <div className="rounded-2xl border border-[#e5e7eb] bg-white p-5 sm:p-6 lg:col-span-7 lg:p-7">
+              <p className="mb-4 inline-flex rounded-full border border-[#d9f99d] bg-[#f7fee7] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#365314]">
+                Grassroots Lifting
+              </p>
+              <h1 className="mb-3 text-4xl font-semibold leading-[0.95] text-[#0f172a] sm:text-5xl lg:text-6xl">
+                Be stronger.
+                <br />
+                Be confident.
+                <br />
+                As it should be.
+              </h1>
+              <p className="max-w-2xl text-sm leading-relaxed text-[#4b5563] sm:text-base">
+                Get stronger and learn through coaching that is honest, practical, and rooted in tradition. Built from the lessons of mentors, the patterns of success, and a community that grows together.
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-[#111827] px-5 py-3 text-sm font-semibold text-white transition hover:bg-black">
+                  Get Started Today <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link 
-                  href="/coaching" 
-                  className="group bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
-                >
+                <Link href="/coaching" className="inline-flex items-center justify-center rounded-full border border-[#d1d5db] bg-white px-5 py-3 text-sm font-semibold text-[#111827] transition hover:bg-[#f9fafb]">
                   Book Consultation
                 </Link>
               </div>
-
-              {/* Floating Elements */}
-              <div className="absolute top-20 left-10 animate-bounce">
-                <div className="w-4 h-4 bg-green-400 rounded-full opacity-60"></div>
-              </div>
-              <div className="absolute top-40 left-20 animate-bounce delay-1000">
-                <div className="w-6 h-6 bg-green-300 rounded-full opacity-40"></div>
+              <div className="mt-5 flex flex-wrap gap-2">
+                <span className="rounded-full bg-[#f3f4f6] px-3 py-1 text-xs text-[#374151]">Personalized coaching</span>
+                <span className="rounded-full bg-[#f3f4f6] px-3 py-1 text-xs text-[#374151]">Technique-first training</span>
+                <span className="rounded-full bg-[#f3f4f6] px-3 py-1 text-xs text-[#374151]">Supportive community</span>
               </div>
             </div>
 
-            {/* Right Section - Testimonials */}
-            <div className={`transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-2xl">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">What Our Athletes Say</h3>
-                  <div className="flex items-center justify-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
+            <div className="grid grid-cols-2 gap-4 lg:col-span-5">
+              <div className="relative min-h-[220px] overflow-hidden rounded-2xl border border-[#e5e7eb] bg-white p-4">
+                <Image src="/image-2.jpg" alt="Coach Adrian" fill className="object-cover opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-transparent" />
+                <div className="relative z-10 flex h-full flex-col justify-end">
+                  <p className="text-xs uppercase tracking-[0.16em] text-[#d9ff45]">Coach</p>
+                  <p className="text-xl font-semibold text-white">Adrian</p>
                 </div>
-
-                {/* Testimonial Content */}
-                <div className="relative">
-                  <div className="bg-white rounded-xl p-6 shadow-lg max-h-[200px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-                    <blockquote className="text-lg text-gray-700 italic mb-6">
-                      "{testimonials[currentTestimonial].content}"
-                    </blockquote>
-                    <div className="font-semibold text-gray-900">{testimonials[currentTestimonial].name}</div>
-                    <div className="text-green-600 text-sm">{testimonials[currentTestimonial].role}</div>
-                  </div>
-
-                  {/* Navigation Buttons */}
-                  <button
-                    onClick={prevTestimonial}
-                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200"
-                  >
-                    <ChevronLeft className="h-5 w-5 text-gray-600" />
-                  </button>
-                  
-                  <button
-                    onClick={nextTestimonial}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200"
-                  >
-                    <ChevronRight className="h-5 w-5 text-gray-600" />
-                  </button>
-                </div>
-
-                {/* Dots Indicator */}
-                <div className="flex justify-center mt-6 space-x-2">
-                  {testimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentTestimonial(index)}
-                      className={`w-3 h-3 rounded-full transition-colors ${
-                        index === currentTestimonial ? 'bg-green-400' : 'bg-white/50'
-                      }`}
-                    />
-                  ))}
+              </div>
+              <div className="relative min-h-[220px] overflow-hidden rounded-2xl border border-[#e5e7eb] bg-white p-4">
+                <Image src="/image-3.jpg" alt="Coach Katerina" fill className="object-cover opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-transparent" />
+                <div className="relative z-10 flex h-full flex-col justify-end">
+                  <p className="text-xs uppercase tracking-[0.16em] text-[#d9ff45]">Coach</p>
+                  <p className="text-xl font-semibold text-white">Katerina</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+      <div className="h-16 bg-gradient-to-b from-transparent via-[#f5f7f9] to-[#eef2f6]" />
+
+      <section className="bg-gradient-to-b from-[#eef2f6] via-[#f2f5f8] to-[#f8fafc] py-14 sm:py-16 lg:py-20">
+        <div className="container-max px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold leading-tight text-[#0f172a] sm:text-5xl">
+              Read reviews,
+              <br />
+              ride with confidence.
+            </h2>
+            <p className="mt-3 text-sm text-[#64748b] sm:text-base">
+              Real feedback from athletes inside our community.
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-12 lg:items-stretch">
+            <aside className="bright-card bg-gradient-to-b from-white to-[#f8fafc] p-6 text-[#111827] lg:col-span-3 lg:p-8">
+              <Quote className="h-14 w-14 text-[#94a3b8]" />
+              <p className="mt-4 text-3xl font-medium leading-tight">
+                What our
+                <br />
+                customers are
+                <br />
+                saying
+              </p>
+              <div className="mt-8 flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  className="nav-brick h-9 w-9 p-0"
+                  aria-label="Previous review"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                <div className="h-px flex-1 bg-[#cbd5e1]" />
+                <button
+                  type="button"
+                  onClick={goNext}
+                  className="nav-brick h-9 w-9 p-0"
+                  aria-label="Next review"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            </aside>
+
+            <div className="lg:col-span-9">
+              <div ref={stripRef} className="review-strip flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3">
+                {testimonials.map((testimonial, index) => (
+                  <article
+                    key={testimonial.id}
+                    className={`bright-card w-[320px] shrink-0 snap-start p-5 transition sm:w-[360px] lg:w-[430px] ${
+                      index === current ? 'border-[#111827] ring-1 ring-[#111827]' : ''
+                    }`}
+                  >
+                    <p className="min-h-[136px] text-sm leading-relaxed text-[#1f2937]">
+                      {testimonial.content.length > 280 ? `${testimonial.content.slice(0, 280)}...` : testimonial.content}
+                    </p>
+                    <div className="mt-5 flex items-center gap-3 border-t border-[#e5e7eb] pt-4">
+                      <div className="h-10 w-10 rounded-full bg-[#111827] text-center text-xs leading-10 text-white">
+                        {testimonial.name
+                          .split(' ')
+                          .slice(0, 2)
+                          .map((part) => part[0])
+                          .join('')}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-[#111827]">{testimonial.name}</p>
+                        <p className="text-xs text-[#6b7280]">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-4 flex items-center justify-center gap-2">
+                {testimonials.map((testimonial, index) => (
+                  <button
+                    key={testimonial.id}
+                    type="button"
+                    onClick={() => scrollToIndex(index)}
+                    className={`h-2.5 rounded-full transition ${index === current ? 'w-8 bg-[#111827]' : 'w-2.5 bg-[#c4c4c4]'}`}
+                    aria-label={`Go to review ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Additional Floating Elements */}
-      <div className="absolute bottom-32 right-20 animate-bounce delay-2000">
-        <div className="w-3 h-3 bg-green-500 rounded-full opacity-50"></div>
-      </div>
-      <div className="absolute bottom-20 right-10 animate-bounce delay-500">
-        <div className="w-5 h-5 bg-green-400 rounded-full opacity-30"></div>
-      </div>
+      </section>
     </div>
   );
 }

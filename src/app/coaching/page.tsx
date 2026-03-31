@@ -1,168 +1,139 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Clock, Users, Target, Calendar, Phone, Star, Trophy } from 'lucide-react';
+import { CheckCircle, ChevronDown, Clock, Users } from 'lucide-react';
 
 export default function CoachingPage() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
+  const [expandedCoach, setExpandedCoach] = useState<string | null>(null);
 
   const coachingOptions = [
     {
-      title: "Consultation",
-      price: "$200/session",
-      duration: "60 minutes",
-      description: "A 1-on-1 personalized consultation call to assess your goals, conflicting commitments and obstacles, and map out the best path forward.",
+      title: 'Online Coaching',
+      price: '$200/month',
+      duration: 'Ongoing',
+      description:
+        'Remote Coaching for individuals requiring regular check-ins, more flexibility in their structure, with constant support.',
       features: [
-        "Comes with a bespoke training program",
-        "In session video analysis and feedback",
-        "Nutrition and lifestyle guidance",
-        "Best suited for individuals that seek to have a framework and whose preference is to be more independent in their pursuit"
-      ]
+        'Adjustable weekly training program',
+        'Weekly video analysis and feedback',
+        'Nutrition and lifestyle guidance',
+        'Best suited for individuals that require more of a holistic approach to their goals that may require continuous revision as training proceeds',
+      ],
     },
-    {
-      title: "Online Coaching",
-      price: "$200/month",
-      duration: "Ongoing",
-      description: "Remote Coaching for individuals requiring regular check-ins, more flexibility in their structure, with constant support.",
-      features: [
-        "Adjustable weekly training program",
-        "Weekly video analysis and feedback",
-        "Nutrition and lifestyle guidance",
-        "Best suited for individuals that require more of a holistic approach to their goals that may require continuous revision as training proceeds"
-      ]
-    }
   ];
 
   const coaches = [
     {
-      name: "Katerina",
-      title: "Coach",
-      experience: "10+ years",
-      credentials: "BSc Psychology, BSc Biology, NSCA Women's Fitness Specialist",
-      image: "image-3.jpg",
-      specialties: ["Women's Fitness", "Pre & Post Natal Training", "Resistance Training"]
+      name: 'Adrian',
+      title: 'Coach',
+      experience: '5+ years',
+      credentials: 'Fitness and Health Promotion, NCCP Competition Introduction',
+      image: '/image-2.jpg',
+      specialties: ['Weightlifting', 'Powerlifting', 'Strongman', 'Youth Resistance Training'],
     },
     {
-      name: "Adrian",
-      title: "Coach",
-      experience: "5+ years",
-      credentials: "Fitness and Health Promotion, NCCP Competition Introduction",
-      image: "image-2.jpg",
-      specialties: ["Weightlifting", "Powerlifting", "Strongman", "Youth Resistance Training"]
-    }
+      name: 'Katerina',
+      title: 'Coach',
+      experience: '10+ years',
+      credentials: "BSc Psychology, BSc Biology, NSCA Women's Fitness Specialist",
+      image: '/image-3.jpg',
+      specialties: ["Women's Fitness", 'Pre & Post Natal Training', 'Resistance Training'],
+    },
   ];
 
+  const toggleCoach = (name: string) => {
+    setExpandedCoach((current) => (current === name ? null : name));
+  };
+
   return (
-    <div className="relative min-h-screen overflow-hidden lg:h-screen lg:overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="image-1.jpeg"
-          alt="Olympic weightlifting facility"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40"></div>
-      </div>
+    <div className="bright-shell">
+      <section className="container-max px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+        <div className="bright-panel p-5 sm:p-6 lg:p-7 reveal-up">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="mb-2 inline-flex rounded-full border border-[#d9f99d] bg-[#f7fee7] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#365314]">
+                Coaching
+              </p>
+              <h1 className="text-4xl font-semibold text-[#0f172a] sm:text-5xl">Choose Your Coaching Style</h1>
+            </div>
+            <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-[#111827] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-black">
+              Get Started
+            </Link>
+          </div>
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="container-max w-full px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-24 pb-24 sm:pb-28 md:pb-32 lg:pb-36 xl:pb-40">
-          {/* Main Content - Side by Side */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 h-full">
-            {/* Left Side - Coaching Options */}
-            <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-              <h2 className="text-2xl font-bold text-white mb-6 text-center lg:text-left">Choose Your Coaching Style</h2>
-              <div className="space-y-3">
-                {coachingOptions.map((option, index) => (
-                  <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-2.5 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                    <div className="text-center mb-1.5">
-                      <h3 className="text-base font-bold text-white mb-1">{option.title}</h3>
-                      <div className="text-lg font-bold text-green-400 mb-1">{option.price}</div>
-                      <div className="flex items-center justify-center text-gray-300 mb-1.5 text-xs">
-                        <Clock className="h-2.5 w-2.5 mr-1" />
-                        {option.duration}
-                      </div>
-                      <p className="text-gray-300 mb-1.5 text-xs">{option.description}</p>
-                    </div>
-
-                    <ul className="space-y-0.5 mb-3">
-                      {option.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start text-gray-200 text-xs">
-                          <CheckCircle className="h-2.5 w-2.5 text-green-400 mr-1.5 flex-shrink-0 mt-0.5" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Link href="/contact" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-1.5 px-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-center block text-xs">
-                      Get Started
-                    </Link>
+          <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-2">
+            <div className="space-y-4">
+              {coachingOptions.map((option, index) => (
+                <article key={option.title} className="bright-card reveal-up p-4 sm:p-5" style={{ animationDelay: `${index * 120}ms` }}>
+                  <div className="mb-3">
+                    <h2 className="text-xl font-semibold text-[#111827]">{option.title}</h2>
+                    <p className="text-lg font-bold text-[#3f6212]">{option.price}</p>
+                    <p className="mt-1 flex items-center text-sm text-[#6b7280]">
+                      <Clock className="mr-1.5 h-4 w-4" />
+                      {option.duration}
+                    </p>
                   </div>
-                ))}
-              </div>
+                  <p className="text-sm text-[#4b5563]">{option.description}</p>
+                  <ul className="mt-3 space-y-2">
+                    {option.features.map((feature) => (
+                      <li key={feature} className="flex items-start text-sm text-[#374151]">
+                        <CheckCircle className="mr-2 mt-0.5 h-4 w-4 shrink-0 text-[#65a30d]" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
             </div>
 
-            {/* Right Side - Coaches */}
-            <div className={`transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-              <h2 className="text-2xl font-bold text-white mb-6 text-center lg:text-left">Meet Our Expert Coaches</h2>
-              <div className="space-y-4">
-                {coaches.map((coach, index) => (
-                  <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl overflow-hidden hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                    <div className="p-4">
-                      <div className="flex items-start space-x-3">
-                        {coach.image && (
-                          <div className="relative flex-shrink-0">
-                            <img
-                              src={coach.image}
-                              alt={coach.name}
-                              className="w-16 h-16 rounded-full object-cover"
-                              style={{
-                                transform: 'scale(1.2)',
-                                objectPosition: 'center'
-                              }}
-                            />
-                          </div>
-                        )}
-                        <div className="flex-1">
-                          <h3 className="text-lg font-bold text-white mb-1">{coach.name}</h3>
-                          <div className="text-green-400 font-semibold mb-1 text-sm">{coach.title}</div>
-                          <div className="text-gray-300 mb-3">
-                            <div className="flex items-center mb-1 text-sm">
-                              <Users className="h-3 w-3 mr-1" />
-                              {coach.experience} experience
-                            </div>
-                            <div className="text-xs">
-                              {coach.credentials}
-                            </div>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-white mb-1 text-sm">Specialties:</h4>
-                            <div className="flex flex-wrap gap-1">
-                              {coach.specialties.map((specialty, specialtyIndex) => (
-                                <span key={specialtyIndex} className="bg-green-400/20 text-green-300 px-2 py-1 rounded-full text-xs border border-green-400/30">
-                                  {specialty}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {coaches.map((coach, index) => (
+                <article key={coach.name} className="bright-card reveal-up overflow-hidden p-4 sm:p-5" style={{ animationDelay: `${index * 140 + 80}ms` }}>
+                  <div className="relative min-h-[220px] overflow-hidden rounded-2xl border border-[#e5e7eb] bg-white p-4">
+                    <Image src={coach.image} alt={coach.name} fill className="object-cover opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-transparent" />
+                    <div className="relative z-10 flex h-full flex-col justify-end">
+                      <p className="text-xs uppercase tracking-[0.16em] text-[#d9ff45]">{coach.title}</p>
+                      <p className="text-xl font-semibold text-white">{coach.name}</p>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => toggleCoach(coach.name)}
+                    className="mt-4 inline-flex items-center justify-center rounded-full border border-[#d1d5db] bg-white px-4 py-2 text-sm font-semibold text-[#111827] transition hover:bg-[#f9fafb]"
+                    aria-expanded={expandedCoach === coach.name}
+                  >
+                    See More Details
+                    <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${expandedCoach === coach.name ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  <div className={`grid transition-all duration-300 ease-out ${expandedCoach === coach.name ? 'mt-4 grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                    <div className="overflow-hidden">
+                      <div className="rounded-2xl border border-[#e5e7eb] bg-[#f8fafc] p-4">
+                        <p className="flex items-center text-sm text-[#6b7280]">
+                          <Users className="mr-1.5 h-4 w-4" />
+                          {coach.experience} experience
+                        </p>
+                        <p className="mt-2 text-sm text-[#4b5563]">{coach.credentials}</p>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {coach.specialties.map((specialty) => (
+                            <span key={specialty} className="rounded-full bg-[#f3f4f6] px-3 py-1 text-xs text-[#374151]">
+                              {specialty}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </article>
+              ))}
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

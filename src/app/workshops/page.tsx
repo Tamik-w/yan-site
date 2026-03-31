@@ -1,243 +1,83 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Calendar, Clock, Users, MapPin, CheckCircle, Star, Award, Zap } from 'lucide-react';
+import { Calendar, CheckCircle, Clock, MapPin, Users } from 'lucide-react';
 
 export default function WorkshopsPage() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
   const upcomingWorkshops = [
     {
       id: 1,
-      title: "Introduction to Snatch",
-      date: "TBD (Saturday)",
-      time: "10:00 AM - 11:30 AM",
-      location: "Fortis Fitness West",
-      instructor: "Coach Adrian",
-      price: "$100",
-      level: "Beginner",
-      description: "A 90-minute intensive introducing Snatch and Clean & Jerk technique, including a presentation, technique analysis, practical drills, personalized feedback, and individualized application.",
+      title: 'Introduction to Snatch',
+      date: 'April 25th',
+      time: '10:00 AM - 12:00 AM',
+      location: 'Fortis Fitness West',
+      instructor: 'Coach Adrian',
+      price: '$100',
+      level: 'Beginner',
+      description:
+        'A 90-minute intensive introducing Snatch and Clean & Jerk technique, including a presentation, technique analysis, practical drills, personalized feedback, and individualized application.',
       topics: [
-        "A slideshow presentation about the lift (snatch / clean and jerk)",
-        "Warm Up – Mobility Assessment",
-        "Progression & Regressions for the lift",
-        "Introduction to technique complexes",
-        "Technique Testing",
-        "Q&A portion"
-      ]
+        'A slideshow presentation about the lift (snatch / clean and jerk)',
+        'Warm Up - Mobility Assessment',
+        'Progression & Regressions for the lift',
+        'Introduction to technique complexes',
+        'Technique Testing',
+        'Q&A portion',
+      ],
     },
-    {
-      id: 2,
-      title: "Introduction to Clean & Jerk",
-      date: "Date TBD (Saturday)",
-      time: "10:00 AM - 11:30 AM",
-      location: "Fortis Fitness West",
-      instructor: "Coach Adrian",
-      price: "$100",
-      level: "Beginner",
-      description: "A 90-minute intensive introducing Snatch and Clean & Jerk technique, including a presentation, technique analysis, practical drills, personalized feedback, and individualized application.",
-      topics: [
-        "A slideshow presentation about the lift (snatch / clean and jerk)",
-        "Warm Up – Mobility Assessment",
-        "Progression & Regressions for the lift",
-        "Introduction to technique complexes",
-        "Technique Testing",
-        "Q&A portion"
-      ]
-    }
   ];
 
   return (
-    <div className="relative min-h-screen overflow-hidden lg:h-screen lg:overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="image-5.jpg"
-          alt="Olympic weightlifting facility"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40"></div>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Hero Section */}
-        {/* <section className="min-h-screen flex items-center">
-          <div className="container-max mobile-safe-area w-full">
-            <div className={`text-center max-w-4xl mx-auto text-white transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="flex items-center justify-center mb-8">
-                <Award className="h-16 w-16 text-green-400 mr-4 animate-pulse" />
-                <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent">
-                  Intensive Workshops
-                </h1>
-              </div>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-                Master your technique, improve your performance, and connect with fellow athletes 
-                in our intensive workshop sessions. Small groups ensure personalized attention.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link href="#upcoming" className="group bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center">
-                  <Calendar className="mr-2 h-5 w-5" />
-                  View Upcoming Workshops
-                </Link>
-                <Link href="/contact" className="group bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center">
-                  Request Custom Workshop
-                </Link>
-              </div>
-            </div>
+    <div className="bright-shell">
+      <section className="container-max px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+        <div className="bright-panel p-5 sm:p-6 lg:p-7 reveal-up">
+          <div className="text-center">
+            <p className="mx-auto mb-2 inline-flex rounded-full border border-[#d9f99d] bg-[#f7fee7] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#365314]">
+              Workshops
+            </p>
+            <h1 className="text-4xl font-semibold text-[#0f172a] sm:text-5xl">Upcoming Workshops</h1>
+            <p className="mt-2 text-sm text-[#4b5563] sm:text-base">Book your spot in our next intensive session</p>
           </div>
-        </section> */}
 
-        {/* Workshop Types */}
-        {/* <section className="py-20">
-          <div className="container-max px-4">
-            <div className={`text-center mb-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Workshop Categories</h2>
-              <p className="text-xl text-gray-300">Specialized training for every level and goal</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {workshopTypes.map((type, index) => (
-                <div key={index} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                  <div className="text-green-400 mb-4 flex justify-center">{type.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-3">{type.title}</h3>
-                  <p className="text-gray-300 mb-4">{type.description}</p>
-                  <ul className="space-y-2">
-                    {type.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-gray-300">
-                        <CheckCircle className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section> */}
-
-        {/* Upcoming Workshops */}
-        <section id="upcoming" className="min-h-screen flex items-center">
-          <div className="container-max w-full px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-24 pb-32 sm:pb-36 md:pb-40 lg:pb-44 xl:pb-48" style={{ marginBottom: '50px' }}>
-            <div className={`text-center mb-12 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Upcoming Workshops</h2>
-              <p className="text-lg text-gray-300">Book your spot in our next intensive session</p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {upcomingWorkshops.map((workshop, index) => (
-                <div key={workshop.id} className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl overflow-hidden hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                  <div className="p-5">
-                    <div className="flex justify-between items-start mb-3">
-                      <div>
-                        <h3 className="text-lg font-bold text-white mb-1">{workshop.title}</h3>
-                        <div className="flex items-center text-green-400 font-semibold text-sm">
-                          <Star className="h-4 w-4 mr-1" />
-                          {workshop.level}
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-xl font-bold text-green-400">{workshop.price}</div>
-                      </div>
-                    </div>
-
-                    <p className="text-gray-300 mb-4 text-sm">{workshop.description}</p>
-
-                    <div className="grid grid-cols-2 gap-3 mb-4 text-xs">
-                      <div className="flex items-center text-gray-300">
-                        <Calendar className="h-3 w-3 mr-2" />
-                        {workshop.date}
-                      </div>
-                      <div className="flex items-center text-gray-300">
-                        <Clock className="h-3 w-3 mr-2" />
-                        {workshop.time}
-                      </div>
-                      <div className="flex items-center text-gray-300">
-                        <MapPin className="h-3 w-3 mr-2" />
-                        {workshop.location}
-                      </div>
-                      <div className="flex items-center text-gray-300">
-                        <Users className="h-3 w-3 mr-2" />
-                        {workshop.instructor}
-                      </div>
-                    </div>
-
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-white mb-2 text-sm">What You'll Learn:</h4>
-                      <ul className="space-y-1">
-                        {workshop.topics.map((topic, topicIndex) => (
-                          <li key={topicIndex} className="flex items-center text-xs text-gray-300">
-                            <CheckCircle className="h-3 w-3 text-green-400 mr-2 flex-shrink-0" />
-                            {topic}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <Link href="/contact" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-center block text-sm">
-                      Register Now
-                    </Link>
+          <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-2">
+            {upcomingWorkshops.map((workshop, index) => (
+              <article key={workshop.id} className="bright-card reveal-up p-5" style={{ animationDelay: `${index * 120}ms` }}>
+                <div className="mb-2 flex items-start justify-between gap-3">
+                  <div>
+                    <h2 className="text-xl font-semibold text-[#111827]">{workshop.title}</h2>
+                    <p className="text-sm font-semibold text-[#3f6212]">{workshop.level}</p>
                   </div>
+                  <p className="text-2xl font-bold text-[#3f6212]">{workshop.price}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* Workshop Benefits */}
-        {/* <section className="py-20">
-          <div className="container-max px-4">
-            <div className={`text-center mb-16 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Why Attend Our Workshops?</h2>
-              <p className="text-xl text-gray-300">Intensive learning in a supportive environment</p>
-            </div>
+                <p className="text-sm text-[#4b5563]">{workshop.description}</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { icon: <Users className="h-8 w-8" />, title: "Small Groups", desc: "Maximum 12 participants ensure personalized attention and detailed feedback for every athlete." },
-                { icon: <CheckCircle className="h-8 w-8" />, title: "Expert Instruction", desc: "Learn from certified coaches with years of competitive experience and proven teaching methods." },
-                { icon: <Star className="h-8 w-8" />, title: "Immediate Results", desc: "Leave with improved technique, new drills, and a clear plan for continued progress." }
-              ].map((benefit, index) => (
-                <div key={index} className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                  <div className="bg-green-400/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 border border-green-400/30">
-                    <div className="text-green-400">{benefit.icon}</div>
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">{benefit.title}</h3>
-                  <p className="text-gray-300">{benefit.desc}</p>
+                <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-[#4b5563]">
+                  <p className="flex items-center"><Calendar className="mr-1.5 h-4 w-4" />{workshop.date}</p>
+                  <p className="flex items-center"><Clock className="mr-1.5 h-4 w-4" />{workshop.time}</p>
+                  <p className="flex items-center"><MapPin className="mr-1.5 h-4 w-4" />{workshop.location}</p>
+                  <p className="flex items-center"><Users className="mr-1.5 h-4 w-4" />{workshop.instructor}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section> */}
 
-        {/* CTA Section */}
-        {/* <section className="py-20">
-          <div className="container-max px-4 text-center">
-            <div className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-12 transition-all duration-1000 delay-900 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h2 className="text-4xl font-bold text-white mb-6">Ready to Improve Your Technique?</h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Join our next workshop and take your weightlifting to the next level with expert guidance and personalized feedback.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contact" className="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-                  Register for Workshop
+                <h3 className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#111827]">What You'll Learn</h3>
+                <ul className="mt-2 space-y-1.5">
+                  {workshop.topics.map((topic) => (
+                    <li key={topic} className="flex items-start text-sm text-[#374151]">
+                      <CheckCircle className="mr-2 mt-0.5 h-4 w-4 shrink-0 text-[#65a30d]" />
+                      {topic}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link href="/contact" className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#111827] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-black">
+                  Register Now
                 </Link>
-                <Link href="/programs" className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
-                  View All Programs
-                </Link>
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
-        </section> */}
-      </div>
+        </div>
+      </section>
     </div>
   );
 }

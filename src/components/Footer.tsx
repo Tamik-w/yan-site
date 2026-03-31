@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <img src="/images/logos/logo.jpeg" alt="Grassroots Lifting Logo" className="h-8 w-8" />
+              <img src="/logo.png" alt="Grassroots Lifting Logo" className="h-8 w-8" />
               <span className="text-2xl font-bold">Grassroots Lifting</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
