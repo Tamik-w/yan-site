@@ -77,8 +77,8 @@ export default function WorkshopsPage() {
                 </article>
 
                 <aside className="bright-card reveal-up overflow-hidden p-3 lg:col-span-5" style={{ animationDelay: `${index * 120 + 80}ms` }}>
-                  <div className="relative min-h-[320px] overflow-hidden rounded-2xl">
-                    <Image src="/image-snatch.jpg" alt="Introduction to Snatch workshop" fill className="object-cover" />
+                  <div className="relative min-h-[320px] overflow-hidden rounded-2xl bg-[#f8fafc]">
+                    <Image src="/image-snatch.jpg" alt="Introduction to Snatch workshop" fill className="object-contain" />
                   </div>
                 </aside>
               </React.Fragment>

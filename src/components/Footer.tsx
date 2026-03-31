@@ -10,8 +10,9 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl bg-white/5 ring-1 ring-white/10">
-                <Image src="/logo.png" alt="Grassroots Lifting Logo" fill className="object-contain p-1.5" />
+              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-[#365314] via-[#4d7c0f] to-[#bef264] shadow-[0_10px_24px_rgba(132,204,22,0.2)] ring-1 ring-[#d9f99d]/30">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.3),transparent_55%)]" />
+                <Image src="/logo.png" alt="Grassroots Lifting Logo" fill className="object-contain p-1.5 opacity-90 mix-blend-screen" />
               </div>
               <span className="text-2xl font-bold">Grassroots Lifting</span>
             </div>

@@ -23,8 +23,9 @@ export default function Navigation() {
         <div className="flex h-[84px] items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-[#f8fafc] ring-1 ring-[#e5e7eb]">
-              <Image src="/logo.png" alt="Grassroots Lifting Logo" fill className="object-contain p-1.5" />
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-[#f7fee7] via-white to-[#ecfccb] shadow-[0_10px_24px_rgba(132,204,22,0.18)] ring-1 ring-[#d9f99d]/70">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.95),transparent_55%)]" />
+              <Image src="/logo.png" alt="Grassroots Lifting Logo" fill className="object-contain p-1.5 opacity-90 mix-blend-multiply" />
             </div>
             <span className="text-xl font-semibold leading-tight text-gray-900">Grassroots Lifting</span>
           </Link>
