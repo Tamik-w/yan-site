@@ -23,8 +23,10 @@ export default function Navigation() {
         <div className="flex h-[84px] items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.png" alt="Grassroots Lifting Logo" width={36} height={36} className="rounded-md" />
-            <span className="text-xl font-semibold text-gray-900">Grassroots Lifting</span>
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-[#f8fafc] ring-1 ring-[#e5e7eb]">
+              <Image src="/logo.png" alt="Grassroots Lifting Logo" fill className="object-contain p-1.5" />
+            </div>
+            <span className="text-xl font-semibold leading-tight text-gray-900">Grassroots Lifting</span>
           </Link>
 
           {/* Desktop Navigation */}

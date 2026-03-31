@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
@@ -9,7 +10,9 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <img src="/logo.png" alt="Grassroots Lifting Logo" className="h-8 w-8" />
+              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl bg-white/5 ring-1 ring-white/10">
+                <Image src="/logo.png" alt="Grassroots Lifting Logo" fill className="object-contain p-1.5" />
+              </div>
               <span className="text-2xl font-bold">Grassroots Lifting</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
