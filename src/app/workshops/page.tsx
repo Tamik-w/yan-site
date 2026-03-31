@@ -76,9 +76,15 @@ export default function WorkshopsPage() {
                   </Link>
                 </article>
 
-                <aside className="bright-card reveal-up overflow-hidden p-3 lg:col-span-5" style={{ animationDelay: `${index * 120 + 80}ms` }}>
-                  <div className="relative min-h-[320px] overflow-hidden rounded-2xl bg-[#f8fafc]">
-                    <Image src="/image-snatch.jpg" alt="Introduction to Snatch workshop" fill className="object-contain" />
+                <aside className="bright-card reveal-up p-3 lg:col-span-5" style={{ animationDelay: `${index * 120 + 80}ms` }}>
+                  <div className="flex h-full items-center justify-center rounded-2xl bg-gradient-to-b from-[#f8fafc] to-[#eef2f6] p-3">
+                    <Image
+                      src="/image-snatch.jpg"
+                      alt="Introduction to Snatch workshop"
+                      width={4000}
+                      height={6000}
+                      className="h-auto max-h-[72vh] w-full rounded-[1.25rem] object-contain shadow-sm"
+                    />
                   </div>
                 </aside>
               </React.Fragment>
